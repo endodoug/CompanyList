@@ -15,6 +15,13 @@ class ViewController: UIViewController {
    
     view.backgroundColor = .yellow
     
+    navigationItem.title = "Companies"
+    
+    navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    navigationController?.navigationBar.isTranslucent = false
+    navigationController?.navigationBar.barTintColor = .red
+    navigationController?.navigationBar.prefersLargeTitles = true
+    
     
   }
 
