@@ -19,9 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow()
     window?.makeKeyAndVisible()
     
-    let dummyViewController = UIViewController()
-    dummyViewController.view.backgroundColor = .blue
-    let navController = UINavigationController(rootViewController: dummyViewController)
+    let companiesController = ViewController()
+//    dummyViewController.view.backgroundColor = .blue
+    let navController = UINavigationController(rootViewController: companiesController)
+    
     window?.rootViewController = navController
     
     return true
