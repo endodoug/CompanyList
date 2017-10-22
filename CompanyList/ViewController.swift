@@ -14,8 +14,6 @@ class ViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-   
-    view.backgroundColor = ThemeColor.asphalt
     
     tableView.backgroundColor = ThemeColor.asphalt
 //    tableView.separatorStyle = .none
@@ -40,9 +38,18 @@ class ViewController: UITableViewController {
     return cell
   }
   
-  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 8
+  }
+  
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let view = UIView()
+    view.backgroundColor = ThemeColor.khaki
+    return view
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 50
   }
   
   @objc func handleAddButtonTapped() {
