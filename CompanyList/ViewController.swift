@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UITableViewController {
+  
+  let cellId = "cellId"
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -16,13 +18,25 @@ class ViewController: UITableViewController {
     view.backgroundColor = ThemeColor.asphalt
     
     tableView.backgroundColor = ThemeColor.asphalt
-    tableView.separatorStyle = .none
+//    tableView.separatorStyle = .none
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     
     navigationItem.title = "Companies"
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddButtonTapped))
     
     setUpNavControllerStyle()
     
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+    
+    return cell
+  }
+  
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 8
   }
   
   @objc func handleAddButtonTapped() {
