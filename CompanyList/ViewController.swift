@@ -16,10 +16,14 @@ class ViewController: UIViewController {
     view.backgroundColor = .yellow
     
     navigationItem.title = "Companies"
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddButtonTapped))
     
     setUpNavControllerStyle()
     
-    
+  }
+  
+  @objc func handleAddButtonTapped() {
+    print("add button tapped 👌")
   }
   
   func setUpNavControllerStyle() {
