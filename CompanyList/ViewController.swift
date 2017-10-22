@@ -13,7 +13,7 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
    
-    view.backgroundColor = .yellow
+    view.backgroundColor = ThemeColor.asphalt
     
     navigationItem.title = "Companies"
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddButtonTapped))
@@ -29,7 +29,8 @@ class ViewController: UIViewController {
   func setUpNavControllerStyle() {
     navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.barTintColor = .red
+    navigationController?.navigationBar.barTintColor = ThemeColor.red
+    
     navigationController?.navigationBar.prefersLargeTitles = true
   }
 
