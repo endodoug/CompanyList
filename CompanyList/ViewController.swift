@@ -17,11 +17,16 @@ class ViewController: UIViewController {
     
     navigationItem.title = "Companies"
     
+    setUpNavControllerStyle()
+    
+    
+  }
+  
+  func setUpNavControllerStyle() {
     navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     navigationController?.navigationBar.isTranslucent = false
     navigationController?.navigationBar.barTintColor = .red
     navigationController?.navigationBar.prefersLargeTitles = true
-    
   }
 
 
