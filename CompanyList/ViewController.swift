@@ -19,6 +19,7 @@ class ViewController: UITableViewController {
     
     tableView.backgroundColor = ThemeColor.asphalt
 //    tableView.separatorStyle = .none
+    tableView.separatorColor = .white
     tableView.tableFooterView = UIView() // Blank UIView to hide separator bars
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     
@@ -32,6 +33,10 @@ class ViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     cell.backgroundColor = ThemeColor.gray
+    cell.textLabel?.text = "Some Company Name"
+    cell.textLabel?.textColor = .white
+    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+    
     return cell
   }
   
