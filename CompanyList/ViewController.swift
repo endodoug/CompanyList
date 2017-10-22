@@ -8,12 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
    
     view.backgroundColor = ThemeColor.asphalt
+    
+    tableView.backgroundColor = ThemeColor.asphalt
+    tableView.separatorStyle = .none
     
     navigationItem.title = "Companies"
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddButtonTapped))
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
     navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     navigationController?.navigationBar.isTranslucent = false
     navigationController?.navigationBar.barTintColor = ThemeColor.red
-    
+    navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
     navigationController?.navigationBar.prefersLargeTitles = true
   }
 
