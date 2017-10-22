@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     navigationController?.navigationBar.barTintColor = .red
     navigationController?.navigationBar.prefersLargeTitles = true
     
-    
   }
 
 
