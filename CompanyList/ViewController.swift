@@ -19,6 +19,7 @@ class ViewController: UITableViewController {
     
     tableView.backgroundColor = ThemeColor.asphalt
 //    tableView.separatorStyle = .none
+    tableView.tableFooterView = UIView() // Blank UIView to hide separator bars
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     
     navigationItem.title = "Companies"
@@ -30,7 +31,7 @@ class ViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-    
+    cell.backgroundColor = ThemeColor.gray
     return cell
   }
   

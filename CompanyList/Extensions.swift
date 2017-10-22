@@ -15,6 +15,7 @@ import UIKit
     static let asphalt = UIColor.init(red: 68/255, green: 74/255, blue: 85/255, alpha: 1)
     static let gray = UIColor.init(red: 89/255, green: 100/255, blue: 116/255, alpha: 1)
     static let khaki = UIColor.init(red: 222/255, green: 208/255, blue: 182/255, alpha: 1)
+    static let teal = UIColor.init(red: 103/255, green: 197/255, blue: 195/255, alpha: 1)
   }
 
 extension UIColor {
