@@ -15,11 +15,11 @@ class CreateCompanyController: UIViewController {
     navigationItem.title = "Create Company"
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelTapped))
     
-    view.backgroundColor = ThemeColor.teal
+    view.backgroundColor = ThemeColor.asphalt
     
   }
   
   @objc func handleCancelTapped() {
-    print(123)
+    dismiss(animated: true, completion: nil)
   }
 }
