@@ -17,17 +17,6 @@ class CompaniesController: UITableViewController {
     Company(name: "Toyota", founded: Date()),
     Company(name: "Mazda", founded: Date())
   ]
-  
-  func addCompany(company: Company) {
-//    let mazda = Company(name: "Mazda", founded: Date())
-    
-    // 1 - modify the array
-    companies.append(company)
-    // 2 - insert a new index path to the tableView
-    let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
-    tableView.insertRows(at: [newIndexPath], with: .automatic)
-    
-  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -79,11 +68,21 @@ class CompaniesController: UITableViewController {
     
     let navController = CustomNavigationController(rootViewController: createCompanyController)
     
-    createCompanyController.companiesController = self
+    createCompanyController.delegate = self
     
     present(navController, animated: true, completion: nil)
     
   }
 
+}
+
+extension CompaniesController: CreateCompanyControllerDelegate {
+  
+  func didAddCompany(company: Company) {
+    companies.append(company)
+    let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
+    tableView.insertRows(at: [newIndexPath], with: .automatic)
+  }
+  
 }
 
