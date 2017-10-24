@@ -14,7 +14,8 @@ class ViewController: UITableViewController {
   let companies = [
     Company(name: "Apple", founded: Date()),
     Company(name: "Roku", founded: Date()),
-    Company(name: "Toyota", founded: Date())
+    Company(name: "Toyota", founded: Date()),
+    Company(name: "Mazda", founded: Date())
   ]
 
   override func viewDidLoad() {
@@ -35,7 +36,7 @@ class ViewController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     cell.backgroundColor = ThemeColor.gray
-    cell.textLabel?.text = "Some Company Name"
+    cell.textLabel?.text = companies[indexPath.row].name
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
