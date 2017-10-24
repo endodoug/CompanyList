@@ -57,6 +57,9 @@ class CreateCompanyController: UIViewController {
   @objc private func handleSaveTapped() {
     print("Saving")
     
+    guard let name = nameTextField.text else { return }
+    let company = Company(name: name, founded: Date())
+    
     dismiss(animated: true, completion: nil)
   }
   
