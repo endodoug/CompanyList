@@ -10,6 +10,8 @@ import UIKit
 
 class CreateCompanyController: UIViewController {
   
+  var companiesController: CompaniesController?
+  
   let nameLabel: UILabel = {
     let label = UILabel()
     label.text = "Name"
@@ -59,6 +61,8 @@ class CreateCompanyController: UIViewController {
     
     guard let name = nameTextField.text else { return }
     let company = Company(name: name, founded: Date())
+    
+    companiesController?.addCompany()
     
     dismiss(animated: true, completion: nil)
   }
