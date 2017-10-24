@@ -18,11 +18,11 @@ class CompaniesController: UITableViewController {
     Company(name: "Mazda", founded: Date())
   ]
   
-  @objc func addCompany() {
-    let mazda = Company(name: "Mazda", founded: Date())
+  func addCompany(company: Company) {
+//    let mazda = Company(name: "Mazda", founded: Date())
     
     // 1 - modify the array
-    companies.append(mazda)
+    companies.append(company)
     // 2 - insert a new index path to the tableView
     let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
     tableView.insertRows(at: [newIndexPath], with: .automatic)
@@ -32,7 +32,7 @@ class CompaniesController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test Add", style: .plain, target: self, action: #selector(addCompany))
+//    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test Add", style: .plain, target: self, action: #selector(addCompany))
     
     tableView.backgroundColor = ThemeColor.asphalt
     tableView.separatorColor = .white

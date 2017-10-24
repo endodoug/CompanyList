@@ -62,7 +62,7 @@ class CreateCompanyController: UIViewController {
     guard let name = nameTextField.text else { return }
     let company = Company(name: name, founded: Date())
     
-    companiesController?.addCompany()
+    companiesController?.addCompany(company: company)
     
     dismiss(animated: true, completion: nil)
   }
