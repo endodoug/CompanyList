@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     
+    UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    UINavigationBar.appearance().isTranslucent = false
+    UINavigationBar.appearance().barTintColor = ThemeColor.red
+    UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+    UINavigationBar.appearance().prefersLargeTitles = true
+    
     window = UIWindow()
     window?.makeKeyAndVisible()
     

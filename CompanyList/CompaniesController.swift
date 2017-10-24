@@ -29,8 +29,6 @@ class CompaniesController: UITableViewController {
     navigationItem.title = "Companies"
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddButtonTapped))
     
-    setUpNavControllerStyle()
-    
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -63,16 +61,15 @@ class CompaniesController: UITableViewController {
   
   @objc func handleAddButtonTapped() {
     print("add button tapped 👌")
+    
+    let createCompanyController = UIViewController()
+    createCompanyController.view.backgroundColor = .green
+    
+    let navController = UINavigationController(rootViewController: createCompanyController)
+    
+    present(navController, animated: true, completion: nil)
+    
   }
-  
-  func setUpNavControllerStyle() {
-    navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-    navigationController?.navigationBar.isTranslucent = false
-    navigationController?.navigationBar.barTintColor = ThemeColor.red
-    navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-    navigationController?.navigationBar.prefersLargeTitles = true
-  }
-
 
 }
 
