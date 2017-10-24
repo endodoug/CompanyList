@@ -30,6 +30,7 @@ class CreateCompanyController: UIViewController {
     
     navigationItem.title = "Create Company"
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelTapped))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveTapped))
     
     view.backgroundColor = ThemeColor.asphalt
     setUpUI()
@@ -51,6 +52,12 @@ class CreateCompanyController: UIViewController {
     
     view.addSubview(nameTextField)
     nameTextField.anchor(top: nameLabel.topAnchor, left: nameLabel.rightAnchor, bottom: nameLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+  }
+  
+  @objc private func handleSaveTapped() {
+    print("Saving")
+    
+    dismiss(animated: true, completion: nil)
   }
   
   @objc func handleCancelTapped() {
