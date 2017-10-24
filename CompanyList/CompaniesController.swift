@@ -62,10 +62,9 @@ class CompaniesController: UITableViewController {
   @objc func handleAddButtonTapped() {
     print("add button tapped 👌")
     
-    let createCompanyController = UIViewController()
-    createCompanyController.view.backgroundColor = .green
+    let createCompanyController = CreateCompanyController()
     
-    let navController = UINavigationController(rootViewController: createCompanyController)
+    let navController = CustomNavigationController(rootViewController: createCompanyController)
     
     present(navController, animated: true, completion: nil)
     

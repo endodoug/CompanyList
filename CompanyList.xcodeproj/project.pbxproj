@@ -14,6 +14,7 @@
 		B798E22D1F9C37FB002F96B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B798E22B1F9C37FB002F96B1 /* LaunchScreen.storyboard */; };
 		B798E2371F9C50EF002F96B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E2361F9C50EF002F96B1 /* Extensions.swift */; };
 		B798E25C1F9F9221002F96B1 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25B1F9F9221002F96B1 /* Company.swift */; };
+		B798E25E1F9F9D52002F96B1 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B798E22E1F9C37FB002F96B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B798E2361F9C50EF002F96B1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B798E25B1F9F9221002F96B1 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				B798E22E1F9C37FB002F96B1 /* Info.plist */,
 				B798E2361F9C50EF002F96B1 /* Extensions.swift */,
 				B798E25B1F9F9221002F96B1 /* Company.swift */,
+				B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */,
 			);
 			path = CompanyList;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			files = (
 				B798E2251F9C37FB002F96B1 /* CompaniesController.swift in Sources */,
 				B798E2231F9C37FB002F96B1 /* AppDelegate.swift in Sources */,
+				B798E25E1F9F9D52002F96B1 /* CreateCompanyController.swift in Sources */,
 				B798E2371F9C50EF002F96B1 /* Extensions.swift in Sources */,
 				B798E25C1F9F9221002F96B1 /* Company.swift in Sources */,
 			);
