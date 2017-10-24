@@ -35,8 +35,12 @@ class ViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+    
     cell.backgroundColor = ThemeColor.gray
-    cell.textLabel?.text = companies[indexPath.row].name
+    
+    let company = companies[indexPath.row]
+    
+    cell.textLabel?.text = company.name
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
