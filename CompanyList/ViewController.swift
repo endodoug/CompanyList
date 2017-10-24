@@ -11,12 +11,16 @@ import UIKit
 class ViewController: UITableViewController {
   
   let cellId = "cellId"
+  let companies = [
+    Company(name: "Apple", founded: Date()),
+    Company(name: "Roku", founded: Date()),
+    Company(name: "Toyota", founded: Date())
+  ]
 
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.backgroundColor = ThemeColor.asphalt
-//    tableView.separatorStyle = .none
     tableView.separatorColor = .white
     tableView.tableFooterView = UIView() // Blank UIView to hide separator bars
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
@@ -39,7 +43,7 @@ class ViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 8
+    return companies.count
   }
   
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
