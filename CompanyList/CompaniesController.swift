@@ -11,15 +11,28 @@ import UIKit
 class CompaniesController: UITableViewController {
   
   let cellId = "cellId"
-  let companies = [
+  var companies = [
     Company(name: "Apple", founded: Date()),
     Company(name: "Roku", founded: Date()),
     Company(name: "Toyota", founded: Date()),
     Company(name: "Mazda", founded: Date())
   ]
+  
+  @objc func addCompany() {
+    let mazda = Company(name: "Mazda", founded: Date())
+    
+    // 1 - modify the array
+    companies.append(mazda)
+    // 2 - insert a new index path to the tableView
+    let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
+    tableView.insertRows(at: [newIndexPath], with: .automatic)
+    
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test Add", style: .plain, target: self, action: #selector(addCompany))
     
     tableView.backgroundColor = ThemeColor.asphalt
     tableView.separatorColor = .white
