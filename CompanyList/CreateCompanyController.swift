@@ -62,14 +62,14 @@ class CreateCompanyController: UIViewController {
   
   @objc private func handleSaveTapped() {
     
-    dismiss(animated: true) {
-      
-      guard let name = self.nameTextField.text else { return }
-      let company = Company(name: name, founded: Date())
-      
-      self.delegate?.didAddCompany(company: company)
-      
-    }
+//    dismiss(animated: true) {
+//      
+//      guard let name = self.nameTextField.text else { return }
+//      let company = Company(name: name, founded: Date())
+//      
+//      self.delegate?.didAddCompany(company: company)
+//      
+//    }
   }
   
   @objc func handleCancelTapped() {
