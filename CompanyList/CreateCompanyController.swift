@@ -16,7 +16,6 @@ protocol CreateCompanyControllerDelegate {
 class CreateCompanyController: UIViewController {
   
   var delegate: CreateCompanyControllerDelegate?
-  let companyModels = "CompanyModels"
   
   let nameLabel: UILabel = {
     let label = UILabel()
@@ -65,7 +64,7 @@ class CreateCompanyController: UIViewController {
   @objc private func handleSaveTapped() {
     
     // initialize Core Data Stack
-    let persistentContainer = NSPersistentContainer(name: companyModels)
+    let persistentContainer = NSPersistentContainer(name: "CompanyModels")
     persistentContainer.loadPersistentStores { (storeDescription, err) in
       if let err = err {
         fatalError("loading of store failed: \(err)")

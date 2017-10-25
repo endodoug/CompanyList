@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class CompaniesController: UITableViewController {
   
@@ -18,9 +19,35 @@ class CompaniesController: UITableViewController {
 //    Company(name: "Toyota", founded: Date()),
 //    Company(name: "Mazda", founded: Date())
 //  ]
+  
+  private func fetchCompanies() {
+    // attempt to fetch core data
+    
+    let persistentContainer = NSPersistentContainer(name: "CompanyModels")
+    persistentContainer.loadPersistentStores { (storeDescription, err) in
+      if let err = err {
+        fatalError("loading of store failed: \(err)")
+      }
+    }
+    
+    let context = persistentContainer.viewContext
+    
+    let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
+    
+    do {
+      let companies = try context.fetch(fetchRequest)
+      companies.forEach({ (company) in
+        print(company.name ?? "")
+      })
+    } catch let fetchErr {
+      print("failed to fetch companies: ", fetchErr)
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    fetchCompanies()
     
 //    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test Add", style: .plain, target: self, action: #selector(addCompany))
     
