@@ -79,7 +79,12 @@ class CreateCompanyController: UIViewController {
     company.setValue(nameTextField.text, forKey: "name") // name is the attribute in the Entity above
     
     // perform the save
-   
+    do {
+       try context.save()
+    } catch let saveErr {
+      print("Failed to save company: ", saveErr)
+    }
+    
     
     
 //    dismiss(animated: true) {
