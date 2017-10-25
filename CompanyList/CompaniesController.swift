@@ -11,12 +11,13 @@ import UIKit
 class CompaniesController: UITableViewController {
   
   let cellId = "cellId"
-  var companies = [
-    Company(name: "Apple", founded: Date()),
-    Company(name: "Roku", founded: Date()),
-    Company(name: "Toyota", founded: Date()),
-    Company(name: "Mazda", founded: Date())
-  ]
+  var companies = [Company]() 
+//  var companies = [
+//    Company(name: "Apple", founded: Date()),
+//    Company(name: "Roku", founded: Date()),
+//    Company(name: "Toyota", founded: Date()),
+//    Company(name: "Mazda", founded: Date())
+//  ]
 
   override func viewDidLoad() {
     super.viewDidLoad()

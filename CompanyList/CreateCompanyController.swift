@@ -16,8 +16,6 @@ class CreateCompanyController: UIViewController {
   
   var delegate: CreateCompanyControllerDelegate?
   
-//  var companiesController: CompaniesController?
-  
   let nameLabel: UILabel = {
     let label = UILabel()
     label.text = "Name"
