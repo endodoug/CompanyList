@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol CreateCompanyControllerDelegate {
   func didAddCompany(company: Company)
@@ -15,6 +16,7 @@ protocol CreateCompanyControllerDelegate {
 class CreateCompanyController: UIViewController {
   
   var delegate: CreateCompanyControllerDelegate?
+  let companyModels = "CompanyModels"
   
   let nameLabel: UILabel = {
     let label = UILabel()
@@ -62,13 +64,31 @@ class CreateCompanyController: UIViewController {
   
   @objc private func handleSaveTapped() {
     
+    // initialize Core Data Stack
+    let persistentContainer = NSPersistentContainer(name: companyModels)
+    persistentContainer.loadPersistentStores { (storeDescription, err) in
+      if let err = err {
+        fatalError("loading of store failed: \(err)")
+      }
+    }
+    
+    let context = persistentContainer.viewContext
+    
+    let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context) // Entity in the datamodel
+    
+    company.setValue(nameTextField.text, forKey: "name") // name is the attribute in the Entity above
+    
+    // perform the save
+   
+    
+    
 //    dismiss(animated: true) {
-//      
+//
 //      guard let name = self.nameTextField.text else { return }
 //      let company = Company(name: name, founded: Date())
-//      
+//
 //      self.delegate?.didAddCompany(company: company)
-//      
+//
 //    }
   }
   
