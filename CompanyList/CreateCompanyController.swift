@@ -67,7 +67,7 @@ class CreateCompanyController: UIViewController {
     let persistentContainer = NSPersistentContainer(name: "CompanyModels")
     persistentContainer.loadPersistentStores { (storeDescription, err) in
       if let err = err {
-        fatalError("loading of store failed: \(err)")
+        fatalError("☢️ loading of store failed: \(err)")
       }
     }
     
@@ -83,8 +83,6 @@ class CreateCompanyController: UIViewController {
     } catch let saveErr {
       print("Failed to save company: ", saveErr)
     }
-    
-    
     
 //    dismiss(animated: true) {
 //

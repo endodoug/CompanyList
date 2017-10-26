@@ -39,6 +39,10 @@ class CompaniesController: UITableViewController {
       companies.forEach({ (company) in
         print(company.name ?? "")
       })
+      
+      self.companies = companies
+      self.tableView.reloadData()
+      
     } catch let fetchErr {
       print("failed to fetch companies: ", fetchErr)
     }
