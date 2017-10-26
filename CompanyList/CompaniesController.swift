@@ -84,6 +84,14 @@ class CompaniesController: UITableViewController {
     let deleteAction =  UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
       let company = self.companies[indexPath.row]
       print("💨 attempting to delete \(company.name ?? "")")
+      
+      // Remove company from TableView Row
+      self.companies.remove(at: indexPath.row) // needs to remove from array first, because tableView needs the correct amount in companies.count
+      self.tableView.deleteRows(at: [indexPath], with: .automatic)
+      
+      // Remove company from Core Data
+      
+      
     }
     
     let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
