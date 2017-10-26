@@ -80,18 +80,16 @@ class CreateCompanyController: UIViewController {
     // perform the save
     do {
        try context.save()
+      
+      //success
+      dismiss(animated: true, completion: {
+        self.delegate?.didAddCompany(company: company as! Company)
+      })
+      
     } catch let saveErr {
       print("Failed to save company: ", saveErr)
     }
-    
-//    dismiss(animated: true) {
-//
-//      guard let name = self.nameTextField.text else { return }
-//      let company = Company(name: name, founded: Date())
-//
-//      self.delegate?.didAddCompany(company: company)
-//
-//    }
+
   }
   
   @objc func handleCancelTapped() {
