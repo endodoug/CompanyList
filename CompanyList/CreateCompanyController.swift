@@ -63,7 +63,7 @@ class CreateCompanyController: UIViewController {
   
   @objc private func handleSaveTapped() {
     
-    CoreDataManager.shared.persistentContainer.viewContext
+//    CoreDataManager.shared.persistentContainer.viewContext
     
     // initialize Core Data Stack
 //    let persistentContainer = NSPersistentContainer(name: "CompanyModels")
@@ -74,6 +74,8 @@ class CreateCompanyController: UIViewController {
 //    }
 //
 //    let context = persistentContainer.viewContext
+    
+    let context = CoreDataManager.shared.persistentContainer.viewContext
     
     let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context) // Entity in the datamodel
     
