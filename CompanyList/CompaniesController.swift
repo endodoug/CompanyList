@@ -80,13 +80,18 @@ class CompaniesController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    
     let deleteAction =  UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
       let company = self.companies[indexPath.row]
-      print("attempting to delete \(company.name ?? "")")
-      
+      print("💨 attempting to delete \(company.name ?? "")")
     }
     
-    return [deleteAction]
+    let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+      let company = self.companies[indexPath.row]
+      print("📝 Attempting to edit \(company.name ?? "")")
+    }
+    
+    return [deleteAction, editAction]
     
   }
   
