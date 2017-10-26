@@ -62,18 +62,7 @@ class CreateCompanyController: UIViewController {
   }
   
   @objc private func handleSaveTapped() {
-    
-//    CoreDataManager.shared.persistentContainer.viewContext
-    
-    // initialize Core Data Stack
-//    let persistentContainer = NSPersistentContainer(name: "CompanyModels")
-//    persistentContainer.loadPersistentStores { (storeDescription, err) in
-//      if let err = err {
-//        fatalError("☢️ loading of store failed: \(err)")
-//      }
-//    }
-//
-//    let context = persistentContainer.viewContext
+
     
     let context = CoreDataManager.shared.persistentContainer.viewContext
     

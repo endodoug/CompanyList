@@ -13,24 +13,9 @@ class CompaniesController: UITableViewController {
   
   let cellId = "cellId"
   var companies = [Company]() 
-//  var companies = [
-//    Company(name: "Apple", founded: Date()),
-//    Company(name: "Roku", founded: Date()),
-//    Company(name: "Toyota", founded: Date()),
-//    Company(name: "Mazda", founded: Date())
-//  ]
   
   private func fetchCompanies() {
     // attempt to fetch core data
-    
-//    let persistentContainer = NSPersistentContainer(name: "CompanyModels")
-//    persistentContainer.loadPersistentStores { (storeDescription, err) in
-//      if let err = err {
-//        fatalError("loading of store failed: \(err)")
-//      }
-//    }
-//
-//    let context = persistentContainer.viewContext
     let context = CoreDataManager.shared.persistentContainer.viewContext
     
     let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
