@@ -79,6 +79,17 @@ class CompaniesController: UITableViewController {
     return 50
   }
   
+  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    let deleteAction =  UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+      let company = self.companies[indexPath.row]
+      print("attempting to delete \(company.name ?? "")")
+      
+    }
+    
+    return [deleteAction]
+    
+  }
+  
   @objc func handleAddButtonTapped() {
     print("add button tapped 👌")
     
