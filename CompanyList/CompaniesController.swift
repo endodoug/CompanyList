@@ -112,6 +112,11 @@ class CompaniesController: UITableViewController {
   
   private func editHandlerFunction(action: UITableViewRowAction, indexPath: IndexPath) {
     print("Editing Company Info in separate function")
+    
+    let editCompanyController = CreateCompanyController()
+    let navController = CustomNavigationController(rootViewController: editCompanyController)
+    present(navController, animated: true, completion: nil)
+    
   }
   
   @objc func handleAddButtonTapped() {
