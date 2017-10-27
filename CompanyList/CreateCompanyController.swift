@@ -16,6 +16,7 @@ protocol CreateCompanyControllerDelegate {
 class CreateCompanyController: UIViewController {
   
   var delegate: CreateCompanyControllerDelegate?
+  var company: Company?
   
   let nameLabel: UILabel = {
     let label = UILabel()
