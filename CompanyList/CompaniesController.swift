@@ -101,13 +101,17 @@ class CompaniesController: UITableViewController {
   
     }
     
-    let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-      let company = self.companies[indexPath.row]
-      print("📝 Attempting to edit \(company.name ?? "")")
-    }
+    let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: editHandlerFunction)
     
     return [deleteAction, editAction]
     
+    // perform an edit
+    
+    
+  }
+  
+  private func editHandlerFunction(action: UITableViewRowAction, indexPath: IndexPath) {
+    print("Editing Company Info in separate function")
   }
   
   @objc func handleAddButtonTapped() {
