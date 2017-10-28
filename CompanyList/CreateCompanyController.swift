@@ -83,7 +83,17 @@ class CreateCompanyController: UIViewController {
   }
   
   private func saveCompanyChanges() {
-    dismiss(animated: true, completion: nil)
+    // get the context first
+    let context = CoreDataManager.shared.persistentContainer.viewContext
+    // get the company value
+    company?.name = nameTextField.text
+    // save the context
+    do {
+      try context.save()
+      dismiss(animated: true, completion: nil)
+    } catch let saveErr {
+      print("Failed to save company changes: ", saveErr)
+    }
   }
   
   private func createCompany() {
