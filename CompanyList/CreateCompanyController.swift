@@ -75,8 +75,15 @@ class CreateCompanyController: UIViewController {
   }
   
   @objc private func handleSaveTapped() {
-    
-    
+    if company == nil {
+      createCompany()
+    } else {
+      saveCompanyChanges()
+    }
+  }
+  
+  private func saveCompanyChanges() {
+    dismiss(animated: true, completion: nil)
   }
   
   private func createCompany() {
