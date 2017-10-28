@@ -110,6 +110,10 @@ class CompaniesController: UITableViewController {
     
   }
   
+//  func didEditCompany(company: Company) {
+//    
+//  }
+  
   private func editHandlerFunction(action: UITableViewRowAction, indexPath: IndexPath) {
     print("Editing Company Info in separate function")
     
@@ -142,6 +146,10 @@ extension CompaniesController: CreateCompanyControllerDelegate {
     companies.append(company)
     let newIndexPath = IndexPath(row: companies.count - 1, section: 0)
     tableView.insertRows(at: [newIndexPath], with: .automatic)
+  }
+  
+  func didEditCompany(company: Company) {
+    //update tableview somehow
   }
   
 }

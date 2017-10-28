@@ -11,6 +11,7 @@ import CoreData
 
 protocol CreateCompanyControllerDelegate {
   func didAddCompany(company: Company)
+  func didEditCompany(company: Company)
 }
 
 class CreateCompanyController: UIViewController {
