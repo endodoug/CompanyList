@@ -150,6 +150,10 @@ extension CompaniesController: CreateCompanyControllerDelegate {
   
   func didEditCompany(company: Company) {
     //update tableview somehow
+    let row = companies.index(of: company)
+    
+    let reloadIndexPath = IndexPath(row: row!, section: 0)
+    tableView.reloadRows(at: [reloadIndexPath], with: .middle)
   }
   
 }
