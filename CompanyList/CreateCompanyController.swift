@@ -76,6 +76,10 @@ class CreateCompanyController: UIViewController {
   
   @objc private func handleSaveTapped() {
     
+    
+  }
+  
+  private func createCompany() {
     let context = CoreDataManager.shared.persistentContainer.viewContext
     
     let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context) // Entity in the datamodel
@@ -84,7 +88,7 @@ class CreateCompanyController: UIViewController {
     
     // perform the save
     do {
-       try context.save()
+      try context.save()
       
       //success
       dismiss(animated: true, completion: {
