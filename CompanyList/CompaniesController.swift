@@ -101,7 +101,10 @@ class CompaniesController: UITableViewController {
   
     }
     
+    deleteAction.backgroundColor = ThemeColor.asphalt
+    
     let editAction = UITableViewRowAction(style: .normal, title: "Edit", handler: editHandlerFunction)
+    editAction.backgroundColor = ThemeColor.red
     
     return [deleteAction, editAction]
     
@@ -150,10 +153,10 @@ extension CompaniesController: CreateCompanyControllerDelegate {
   
   func didEditCompany(company: Company) {
     //update tableview somehow
-    let row = companies.index(of: company)
+    guard let row = companies.index(of: company) else { return }
     
-    let reloadIndexPath = IndexPath(row: row!, section: 0)
-    tableView.reloadRows(at: [reloadIndexPath], with: .middle)
+    let reloadIndexPath = IndexPath(row: row, section: 0)
+    tableView.reloadRows(at: [reloadIndexPath], with: .left)
   }
   
 }
