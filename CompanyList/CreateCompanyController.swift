@@ -91,7 +91,9 @@ class CreateCompanyController: UIViewController {
     // save the context
     do {
       try context.save()
-      dismiss(animated: true, completion: nil)
+      dismiss(animated: true, completion: {
+        self.delegate?.didEditCompany(company: self.company!)
+      })
     } catch let saveErr {
       print("Failed to save company changes: ", saveErr)
     }
