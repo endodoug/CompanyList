@@ -114,6 +114,7 @@ class CompaniesController: UITableViewController {
     print("Editing Company Info in separate function")
     
     let editCompanyController = CreateCompanyController()
+    editCompanyController.delegate = self
     editCompanyController.company = companies[indexPath.row]
     let navController = CustomNavigationController(rootViewController: editCompanyController)
     present(navController, animated: true, completion: nil)
