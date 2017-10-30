@@ -168,6 +168,14 @@ extension CreateCompanyController: UINavigationControllerDelegate {
 
 extension CreateCompanyController: UIImagePickerControllerDelegate {
   
+  func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    print(info)
+  }
+  
 }
 
 
