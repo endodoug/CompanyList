@@ -28,6 +28,7 @@ class CreateCompanyController: UIViewController {
   
   let companyImageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
+    imageView.isUserInteractionEnabled = true 
     
     return imageView
   }()
