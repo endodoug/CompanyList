@@ -37,6 +37,9 @@ class CreateCompanyController: UIViewController {
   @objc private func handleSelectPhoto() {
     print("📸 selecting photo")
     let imagePickerController = UIImagePickerController()
+    
+    imagePickerController.delegate = self
+    
     present(imagePickerController, animated: true, completion: nil)
   }
   
@@ -158,3 +161,14 @@ class CreateCompanyController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
 }
+
+extension CreateCompanyController: UINavigationControllerDelegate {
+  
+}
+
+extension CreateCompanyController: UIImagePickerControllerDelegate {
+  
+}
+
+
+
