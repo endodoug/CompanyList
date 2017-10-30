@@ -41,6 +41,7 @@ class CreateCompanyController: UIViewController {
   
   let datePicker: UIDatePicker = {
     let picker = UIDatePicker()
+    picker.datePickerMode = .date
     picker.translatesAutoresizingMaskIntoConstraints = false
     return picker
   }()
@@ -115,6 +116,7 @@ class CreateCompanyController: UIViewController {
     let company = NSEntityDescription.insertNewObject(forEntityName: "Company", into: context) // Entity in the datamodel
     
     company.setValue(nameTextField.text, forKey: "name") // name is the attribute in the Entity above
+    company.setValue(datePicker.date, forKey: "founded")
     
     // perform the save
     do {
