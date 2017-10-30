@@ -39,6 +39,12 @@ class CreateCompanyController: UIViewController {
     return textField
   }()
   
+  let datePicker: UIDatePicker = {
+    let picker = UIDatePicker()
+    picker.translatesAutoresizingMaskIntoConstraints = false
+    return picker
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -66,13 +72,17 @@ class CreateCompanyController: UIViewController {
     }()
     
     view.addSubview(khakiBackgroundView)
-    khakiBackgroundView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
+    khakiBackgroundView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 250)
     
     view.addSubview(nameLabel)
     nameLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 100, height: 50)
     
     view.addSubview(nameTextField)
     nameTextField.anchor(top: nameLabel.topAnchor, left: nameLabel.rightAnchor, bottom: nameLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    
+    view.addSubview(datePicker)
+    datePicker.anchor(top: nameLabel.topAnchor, left: view.leftAnchor, bottom: khakiBackgroundView.bottomAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    
   }
   
   @objc private func handleSaveTapped() {
