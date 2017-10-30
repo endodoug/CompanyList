@@ -20,6 +20,9 @@ class CreateCompanyController: UIViewController {
   var company: Company? {
     didSet {
       nameTextField.text = company?.name
+      
+      guard let founded = company?.founded else { return }
+      datePicker.date = founded
     }
   }
   
