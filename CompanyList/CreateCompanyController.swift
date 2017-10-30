@@ -39,6 +39,7 @@ class CreateCompanyController: UIViewController {
     let imagePickerController = UIImagePickerController()
     
     imagePickerController.delegate = self
+    imagePickerController.allowsEditing = true
     
     present(imagePickerController, animated: true, completion: nil)
   }
@@ -174,6 +175,10 @@ extension CreateCompanyController: UIImagePickerControllerDelegate {
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     print(info)
+    if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+      companyImageView.image = originalImage
+    }
+    dismiss(animated: true, completion: nil)
   }
   
 }
