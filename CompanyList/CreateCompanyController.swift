@@ -35,9 +35,9 @@ class CreateCompanyController: UIViewController {
   }()
   
   @objc private func handleSelectPhoto() {
-  
     print("📸 selecting photo")
-    
+    let imagePickerController = UIImagePickerController()
+    present(imagePickerController, animated: true, completion: nil)
   }
   
   let nameLabel: UILabel = {
