@@ -58,7 +58,13 @@ class CompaniesController: UITableViewController {
     
     let company = companies[indexPath.row]
     
-    cell.textLabel?.text = "\(company.name) - Founded: \(company.founded)"
+    if let name = company.name, let founded = company.founded {
+      cell.textLabel?.text = "\(name) - Founded: \(founded)"
+    } else {
+      cell.textLabel?.text = company.name
+    }
+    
+//    cell.textLabel?.text = "\(company.name) - Founded: \(company.founded)"
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
