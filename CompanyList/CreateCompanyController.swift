@@ -26,12 +26,19 @@ class CreateCompanyController: UIViewController {
     }
   }
   
-  let companyImageView: UIImageView = {
+  lazy var companyImageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
-    imageView.isUserInteractionEnabled = true 
+    imageView.isUserInteractionEnabled = true
+    imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectPhoto)))
     
     return imageView
   }()
+  
+  @objc private func handleSelectPhoto() {
+  
+    print("📸 selecting photo")
+    
+  }
   
   let nameLabel: UILabel = {
     let label = UILabel()
