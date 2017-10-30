@@ -59,12 +59,13 @@ class CompaniesController: UITableViewController {
     let company = companies[indexPath.row]
     
     if let name = company.name, let founded = company.founded {
-      cell.textLabel?.text = "\(name) - Founded: \(founded)"
+      let locale = Locale(identifier: "EN")
+      let dateString = "\(name) - Founded: \(founded.description(with: locale))"
+      cell.textLabel?.text = dateString
     } else {
       cell.textLabel?.text = company.name
     }
-    
-//    cell.textLabel?.text = "\(company.name) - Founded: \(company.founded)"
+  
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
