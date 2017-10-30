@@ -26,6 +26,11 @@ class CreateCompanyController: UIViewController {
     }
   }
   
+  let companyImageView: UIImageView = {
+    let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
+    
+    return imageView
+  }()
   
   let nameLabel: UILabel = {
     let label = UILabel()
@@ -76,16 +81,20 @@ class CreateCompanyController: UIViewController {
     }()
     
     view.addSubview(khakiBackgroundView)
-    khakiBackgroundView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 250)
+    khakiBackgroundView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 350)
+    
+    view.addSubview(companyImageView)
+    companyImageView.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)
+    companyImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     
     view.addSubview(nameLabel)
-    nameLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 100, height: 50)
+    nameLabel.anchor(top: companyImageView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 100, height: 50)
     
     view.addSubview(nameTextField)
     nameTextField.anchor(top: nameLabel.topAnchor, left: nameLabel.rightAnchor, bottom: nameLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     
     view.addSubview(datePicker)
-    datePicker.anchor(top: nameLabel.topAnchor, left: view.leftAnchor, bottom: khakiBackgroundView.bottomAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    datePicker.anchor(top: nameLabel.topAnchor, left: view.leftAnchor, bottom: khakiBackgroundView.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     
   }
   
@@ -102,6 +111,7 @@ class CreateCompanyController: UIViewController {
     let context = CoreDataManager.shared.persistentContainer.viewContext
     // get the company value
     company?.name = nameTextField.text
+    company?.founded = datePicker.date
     // save the context
     do {
       try context.save()
