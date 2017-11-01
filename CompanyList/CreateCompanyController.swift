@@ -24,11 +24,19 @@ class CreateCompanyController: UIViewController {
       
       if let imageData = company?.imageData {
         companyImageView.image = UIImage(data: imageData)
+        setUpCircularStyle()
       }
       
       guard let founded = company?.founded else { return }
       datePicker.date = founded
     }
+  }
+  
+  func setUpCircularStyle() {
+    companyImageView.layer.cornerRadius = companyImageView.frame.width / 2
+    companyImageView.clipsToBounds = true
+    companyImageView.layer.borderColor = ThemeColor.asphalt.cgColor
+    companyImageView.layer.borderWidth = 2
   }
   
   lazy var companyImageView: UIImageView = {
@@ -129,6 +137,9 @@ class CreateCompanyController: UIViewController {
     // get the company value
     company?.name = nameTextField.text
     company?.founded = datePicker.date
+    
+    
+    
     // save the context
     do {
       try context.save()
@@ -191,6 +202,9 @@ extension CreateCompanyController: UIImagePickerControllerDelegate {
     else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
       companyImageView.image = originalImage
     }
+    
+    setUpCircularStyle()
+    
     dismiss(animated: true, completion: nil)
   }
   
