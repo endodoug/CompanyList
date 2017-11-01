@@ -29,13 +29,6 @@ public extension UIView {
    - corners: Defines which corners should be rounded.
    - radius: Defines the radius of the round corners as a `CGFloat`.
    */
-  //  if @available(iOS 11.0, *)  {
-  //  public func roundViewCorners(_ corners: CACornerMask, radius: CGFloat) {
-  //  self.clipsToBounds = true
-  //  self.layer.cornerRadius = radius
-  //  self.layer.maskedCorners = corners
-  //  }
-  //  } else { }
   
   public func roundViewCorners(_ corners: UIRectCorner, radius: CGFloat) {
     

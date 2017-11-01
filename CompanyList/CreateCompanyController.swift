@@ -106,7 +106,7 @@ class CreateCompanyController: UIViewController {
     nameTextField.anchor(top: nameLabel.topAnchor, left: nameLabel.rightAnchor, bottom: nameLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     
     view.addSubview(datePicker)
-    datePicker.anchor(top: nameLabel.topAnchor, left: view.leftAnchor, bottom: khakiBackgroundView.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    datePicker.anchor(top: nameLabel.bottomAnchor, left: view.leftAnchor, bottom: khakiBackgroundView.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     
   }
   
@@ -143,6 +143,11 @@ class CreateCompanyController: UIViewController {
     company.setValue(nameTextField.text, forKey: "name") // name is the attribute in the Entity above
     company.setValue(datePicker.date, forKey: "founded")
     
+    if let companyImage = companyImageView.image {
+      let imageData = UIImageJPEGRepresentation(companyImage, 0.8)
+      company.setValue(imageData, forKey: "imageData")
+    }
+    
     // perform the save
     do {
       try context.save()
@@ -173,9 +178,12 @@ extension CreateCompanyController: UIImagePickerControllerDelegate {
     dismiss(animated: true, completion: nil)
   }
   
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    print(info)
-    if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+  @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+    if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+      companyImageView.image = editedImage
+    }
+    else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
       companyImageView.image = originalImage
     }
     dismiss(animated: true, completion: nil)
