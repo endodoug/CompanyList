@@ -76,6 +76,9 @@ class CompaniesController: UITableViewController {
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
+    cell.imageView?.image = #imageLiteral(resourceName: "select_photo_empty")
+    
+    
     return cell
   }
   
