@@ -42,6 +42,7 @@ class CreateCompanyController: UIViewController {
   lazy var companyImageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
     imageView.isUserInteractionEnabled = true
+    imageView.contentMode = .scaleAspectFill
     imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectPhoto)))
     
     return imageView
@@ -138,7 +139,10 @@ class CreateCompanyController: UIViewController {
     company?.name = nameTextField.text
     company?.founded = datePicker.date
     
-    
+    if let companyImage = companyImageView.image {
+      let imageData = UIImageJPEGRepresentation(companyImage, 0.8)
+      company?.imageData = imageData
+    }
     
     // save the context
     do {
