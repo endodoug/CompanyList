@@ -17,9 +17,14 @@ protocol CreateCompanyControllerDelegate {
 class CreateCompanyController: UIViewController {
   
   var delegate: CreateCompanyControllerDelegate?
+  
   var company: Company? {
     didSet {
       nameTextField.text = company?.name
+      
+      if let imageData = company?.imageData {
+        companyImageView.image = UIImage(data: imageData)
+      }
       
       guard let founded = company?.founded else { return }
       datePicker.date = founded
