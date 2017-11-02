@@ -157,6 +157,8 @@ class CompaniesController: UITableViewController {
     
     do {
       try context.execute(batchRequest)
+      companies.removeAll()
+      tableView.reloadData()
     } catch let delErr {
       print("Failed to delete companies: ", delErr)
     }
