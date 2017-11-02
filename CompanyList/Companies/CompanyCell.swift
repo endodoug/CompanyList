@@ -10,6 +10,12 @@ import UIKit
 
 class CompanyCell: UITableViewCell {
   
+  var company: Company? {
+    didSet {
+      nameFoundedDateLabel.text = company?.name
+    }
+  }
+  
   let companyImageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
     imageView.contentMode = .scaleAspectFill

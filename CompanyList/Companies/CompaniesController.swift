@@ -52,7 +52,10 @@ class CompaniesController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CompanyCell
+    
+    let company = companies[indexPath.row]
+    cell.company = company
     
 //    cell.backgroundColor = ThemeColor.gray
     
