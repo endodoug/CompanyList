@@ -112,7 +112,6 @@ class CompaniesController: UITableViewController {
     return companies.count == 0 ? 150 : 0
   }
   
-  
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
     let deleteAction =  UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
@@ -171,8 +170,17 @@ class CompaniesController: UITableViewController {
     
     do {
       try context.execute(batchRequest)
+      
+      // upon deletion from core data succeeds
+      
+      var indexPathsToRemove = [IndexPath]()
+      for (index, company) in companies.enumerated() {
+        let indexPath = IndexPath(row: index, section: 0)
+        indexPathsToRemove.append(indexPath)
+      }
       companies.removeAll()
-      tableView.reloadData()
+      tableView.deleteRows(at: indexPathsToRemove, with: .left)
+
     } catch let delErr {
       print("Failed to delete companies: ", delErr)
     }
