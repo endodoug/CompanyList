@@ -95,6 +95,10 @@ class CompaniesController: UITableViewController {
     return view
   }
   
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 50
+  }
+  
   override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     let label = UILabel()
     label.text = "No Companies Available..."
@@ -105,12 +109,9 @@ class CompaniesController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    return 150
+    return companies.count == 0 ? 150 : 0
   }
   
-  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return 50
-  }
   
   override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     
