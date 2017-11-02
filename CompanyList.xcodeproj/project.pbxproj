@@ -49,6 +49,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B73863D01FAB6EA800846256 /* Companies */ = {
+			isa = PBXGroup;
+			children = (
+				B798E2241F9C37FB002F96B1 /* CompaniesController.swift */,
+				B73863CE1FAB6BFB00846256 /* CompanyCell.swift */,
+			);
+			path = Companies;
+			sourceTree = "<group>";
+		};
+		B73863D11FAB6EED00846256 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B73DBEC01FA241670099AA2B /* CoreDataManager.swift */,
+				B798E2361F9C50EF002F96B1 /* Extensions.swift */,
+				B72411A11FA7A08E00BD7FA5 /* UIView+Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		B798E2161F9C37FB002F96B1 = {
 			isa = PBXGroup;
 			children = (
@@ -68,19 +87,16 @@
 		B798E2211F9C37FB002F96B1 /* CompanyList */ = {
 			isa = PBXGroup;
 			children = (
+				B73863D01FAB6EA800846256 /* Companies */,
+				B73863D11FAB6EED00846256 /* Utilities */,
+				B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */,
+				B798E25B1F9F9221002F96B1 /* Company.swift */,
+				B73DBEBC1FA13BE50099AA2B /* CompanyModels.xcdatamodeld */,
 				B798E2221F9C37FB002F96B1 /* AppDelegate.swift */,
-				B798E2241F9C37FB002F96B1 /* CompaniesController.swift */,
-				B798E2261F9C37FB002F96B1 /* Main.storyboard */,
 				B798E2291F9C37FB002F96B1 /* Assets.xcassets */,
 				B798E22B1F9C37FB002F96B1 /* LaunchScreen.storyboard */,
+				B798E2261F9C37FB002F96B1 /* Main.storyboard */,
 				B798E22E1F9C37FB002F96B1 /* Info.plist */,
-				B798E2361F9C50EF002F96B1 /* Extensions.swift */,
-				B798E25B1F9F9221002F96B1 /* Company.swift */,
-				B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */,
-				B73DBEBC1FA13BE50099AA2B /* CompanyModels.xcdatamodeld */,
-				B73DBEC01FA241670099AA2B /* CoreDataManager.swift */,
-				B72411A11FA7A08E00BD7FA5 /* UIView+Utilities.swift */,
-				B73863CE1FAB6BFB00846256 /* CompanyCell.swift */,
 			);
 			path = CompanyList;
 			sourceTree = "<group>";
