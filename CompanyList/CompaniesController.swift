@@ -150,6 +150,16 @@ class CompaniesController: UITableViewController {
   
   @objc private func handleResetButtonTapped() {
     print("reset Button tapped 👌")
+    
+    let context = CoreDataManager.shared.persistentContainer.viewContext
+    
+    let batchRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
+    
+    do {
+      try context.execute(batchRequest)
+    } catch let delErr {
+      print("Failed to delete companies: ", delErr)
+    }
   }
   
   @objc func handleAddButtonTapped() {
