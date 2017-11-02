@@ -33,13 +33,13 @@ class CompaniesController: UITableViewController {
       print("failed to fetch companies: ", fetchErr)
     }
   }
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     fetchCompanies()
     
-//    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Test Add", style: .plain, target: self, action: #selector(addCompany))
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped))
     
     tableView.backgroundColor = ThemeColor.asphalt
     tableView.separatorColor = .white
@@ -72,7 +72,7 @@ class CompaniesController: UITableViewController {
     } else {
       cell.textLabel?.text = company.name
     }
-  
+    
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
@@ -81,7 +81,7 @@ class CompaniesController: UITableViewController {
     if let imageData = company.imageData {
       cell.imageView?.image = UIImage(data: imageData)
     }
-  
+    
     return cell
   }
   
@@ -118,7 +118,7 @@ class CompaniesController: UITableViewController {
       } catch let saveErr {
         print("☢️ Failed to delete company: ", saveErr)
       }
-  
+      
     }
     
     deleteAction.backgroundColor = ThemeColor.asphalt
@@ -133,9 +133,9 @@ class CompaniesController: UITableViewController {
     
   }
   
-//  func didEditCompany(company: Company) {
-//    
-//  }
+  //  func didEditCompany(company: Company) {
+  //
+  //  }
   
   private func editHandlerFunction(action: UITableViewRowAction, indexPath: IndexPath) {
     print("Editing Company Info in separate function")
@@ -146,6 +146,10 @@ class CompaniesController: UITableViewController {
     let navController = CustomNavigationController(rootViewController: editCompanyController)
     present(navController, animated: true, completion: nil)
     
+  }
+  
+  @objc private func handleResetButtonTapped() {
+    print("reset Button tapped 👌")
   }
   
   @objc func handleAddButtonTapped() {
@@ -160,7 +164,7 @@ class CompaniesController: UITableViewController {
     present(navController, animated: true, completion: nil)
     
   }
-
+  
 }
 
 extension CompaniesController: CreateCompanyControllerDelegate {
