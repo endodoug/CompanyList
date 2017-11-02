@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B72411A21FA7A08E00BD7FA5 /* UIView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72411A11FA7A08E00BD7FA5 /* UIView+Utilities.swift */; };
+		B73863CF1FAB6BFB00846256 /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73863CE1FAB6BFB00846256 /* CompanyCell.swift */; };
 		B73DBEBF1FA13C490099AA2B /* CompanyModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B73DBEBC1FA13BE50099AA2B /* CompanyModels.xcdatamodeld */; };
 		B73DBEC11FA241670099AA2B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DBEC01FA241670099AA2B /* CoreDataManager.swift */; };
 		B798E2231F9C37FB002F96B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E2221F9C37FB002F96B1 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		B72411A11FA7A08E00BD7FA5 /* UIView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utilities.swift"; sourceTree = "<group>"; };
+		B73863CE1FAB6BFB00846256 /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
 		B73DBEBD1FA13BE50099AA2B /* CompanyModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CompanyModels.xcdatamodel; sourceTree = "<group>"; };
 		B73DBEC01FA241670099AA2B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B798E21F1F9C37FB002F96B1 /* CompanyList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +80,7 @@
 				B73DBEBC1FA13BE50099AA2B /* CompanyModels.xcdatamodeld */,
 				B73DBEC01FA241670099AA2B /* CoreDataManager.swift */,
 				B72411A11FA7A08E00BD7FA5 /* UIView+Utilities.swift */,
+				B73863CE1FAB6BFB00846256 /* CompanyCell.swift */,
 			);
 			path = CompanyList;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 				B72411A21FA7A08E00BD7FA5 /* UIView+Utilities.swift in Sources */,
 				B73DBEBF1FA13C490099AA2B /* CompanyModels.xcdatamodeld in Sources */,
 				B798E2231F9C37FB002F96B1 /* AppDelegate.swift in Sources */,
+				B73863CF1FAB6BFB00846256 /* CompanyCell.swift in Sources */,
 				B798E25E1F9F9D52002F96B1 /* CreateCompanyController.swift in Sources */,
 				B798E2371F9C50EF002F96B1 /* Extensions.swift in Sources */,
 				B73DBEC11FA241670099AA2B /* CoreDataManager.swift in Sources */,

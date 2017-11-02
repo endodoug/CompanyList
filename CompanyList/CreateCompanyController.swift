@@ -24,7 +24,7 @@ class CreateCompanyController: UIViewController {
       
       if let imageData = company?.imageData {
         companyImageView.image = UIImage(data: imageData)
-        setUpCircularStyle()
+        setUpCircularStyle(borderWidth: 4.0)
       }
       
       guard let founded = company?.founded else { return }
@@ -32,11 +32,11 @@ class CreateCompanyController: UIViewController {
     }
   }
   
-  func setUpCircularStyle() {
+  func setUpCircularStyle(borderWidth: CGFloat) {
     companyImageView.layer.cornerRadius = companyImageView.frame.width / 2
     companyImageView.clipsToBounds = true
     companyImageView.layer.borderColor = ThemeColor.asphalt.cgColor
-    companyImageView.layer.borderWidth = 2
+    companyImageView.layer.borderWidth = borderWidth
   }
   
   lazy var companyImageView: UIImageView = {
@@ -207,7 +207,7 @@ extension CreateCompanyController: UIImagePickerControllerDelegate {
       companyImageView.image = originalImage
     }
     
-    setUpCircularStyle()
+    setUpCircularStyle(borderWidth: 4.0)
     
     dismiss(animated: true, completion: nil)
   }

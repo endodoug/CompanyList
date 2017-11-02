@@ -44,7 +44,7 @@ class CompaniesController: UITableViewController {
     tableView.backgroundColor = ThemeColor.asphalt
     tableView.separatorColor = .white
     tableView.tableFooterView = UIView() // Blank UIView to hide separator bars
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
     
     navigationItem.title = "Companies"
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddButtonTapped))
@@ -174,7 +174,7 @@ class CompaniesController: UITableViewController {
       // upon deletion from core data succeeds
       
       var indexPathsToRemove = [IndexPath]()
-      for (index, company) in companies.enumerated() {
+      for (index, _) in companies.enumerated() {
         let indexPath = IndexPath(row: index, section: 0)
         indexPathsToRemove.append(indexPath)
       }
