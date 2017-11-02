@@ -56,25 +56,25 @@ class CompaniesController: UITableViewController {
     
 //    cell.backgroundColor = ThemeColor.gray
     
-    let company = companies[indexPath.row]
+//    let company = companies[indexPath.row]
+//
+//    if let name = company.name, let founded = company.founded {
     
-    if let name = company.name, let founded = company.founded {
-      
-      // MMM, dd, yyyy
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "MMM, dd, yyyy"
-      
-      let foundedDateString = dateFormatter.string(from: founded)
-      
-      let dateString = "\(name) - Founded: \(foundedDateString)"
-      
-      cell.textLabel?.text = dateString
-    } else {
-      cell.textLabel?.text = company.name
-    }
-    
-    cell.textLabel?.textColor = .white
-    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+//      // MMM, dd, yyyy
+//      let dateFormatter = DateFormatter()
+//      dateFormatter.dateFormat = "MMM, dd, yyyy"
+//
+//      let foundedDateString = dateFormatter.string(from: founded)
+//
+//      let dateString = "\(name) - Founded: \(foundedDateString)"
+//
+//      cell.textLabel?.text = dateString
+//    } else {
+//      cell.textLabel?.text = company.name
+//    }
+//
+//    cell.textLabel?.textColor = .white
+//    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
 //    cell.imageView?.image = #imageLiteral(resourceName: "select_photo_empty")
 //
