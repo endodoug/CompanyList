@@ -13,12 +13,20 @@ class CompanyCell: UITableViewCell {
   var company: Company? {
     didSet {
       nameFoundedDateLabel.text = company?.name
+      
+      if let imageData = company?.imageData {
+        companyImageView.image = UIImage(data: imageData)
+      }
     }
   }
   
   let companyImageView: UIImageView = {
     let imageView = UIImageView(image: #imageLiteral(resourceName: "select_photo_empty"))
     imageView.contentMode = .scaleAspectFill
+    imageView.layer.cornerRadius = 20
+    imageView.clipsToBounds = true
+    imageView.layer.borderColor = ThemeColor.asphalt.cgColor
+    imageView.layer.borderWidth = 2
     imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
   }()
