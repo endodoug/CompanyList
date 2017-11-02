@@ -95,6 +95,19 @@ class CompaniesController: UITableViewController {
     return view
   }
   
+  override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    let label = UILabel()
+    label.text = "No Companies Available..."
+    label.textColor = .white
+    label.textAlignment = .center
+    label.font = UIFont.boldSystemFont(ofSize: 16)
+    return label
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return 150
+  }
+  
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return 50
   }
