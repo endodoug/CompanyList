@@ -54,7 +54,7 @@ class CompaniesController: UITableViewController {
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     
-    cell.backgroundColor = ThemeColor.gray
+//    cell.backgroundColor = ThemeColor.gray
     
     let company = companies[indexPath.row]
     
@@ -76,11 +76,11 @@ class CompaniesController: UITableViewController {
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     
-    cell.imageView?.image = #imageLiteral(resourceName: "select_photo_empty")
-    
-    if let imageData = company.imageData {
-      cell.imageView?.image = UIImage(data: imageData)
-    }
+//    cell.imageView?.image = #imageLiteral(resourceName: "select_photo_empty")
+//
+//    if let imageData = company.imageData {
+//      cell.imageView?.image = UIImage(data: imageData)
+//    }
     
     return cell
   }
