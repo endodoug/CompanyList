@@ -19,8 +19,6 @@ class CompaniesController: UITableViewController {
     
     self.companies = CoreDataManager.shared.fetchCompanies()
     
-//    fetchCompanies()
-    
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped))
     
     tableView.backgroundColor = ThemeColor.asphalt
@@ -36,26 +34,38 @@ class CompaniesController: UITableViewController {
   @objc private func handleResetButtonTapped() {
     print("reset Button tapped 👌")
     
-    let context = CoreDataManager.shared.persistentContainer.viewContext
     
-    let batchRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
     
-    do {
-      try context.execute(batchRequest)
-      
-      // upon deletion from core data succeeds
-      
-      var indexPathsToRemove = [IndexPath]()
-      for (index, _) in companies.enumerated() {
-        let indexPath = IndexPath(row: index, section: 0)
-        indexPathsToRemove.append(indexPath)
-      }
-      companies.removeAll()
-      tableView.deleteRows(at: indexPathsToRemove, with: .left)
-      
-    } catch let delErr {
-      print("Failed to delete companies: ", delErr)
+//    let context = CoreDataManager.shared.persistentContainer.viewContext
+//
+//    let batchRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
+//
+//    do {
+//      try context.execute(batchRequest)
+//
+//      // upon deletion from core data succeeds
+//
+//      var indexPathsToRemove = [IndexPath]()
+//      for (index, _) in companies.enumerated() {
+//        let indexPath = IndexPath(row: index, section: 0)
+//        indexPathsToRemove.append(indexPath)
+//      }
+//      companies.removeAll()
+//      tableView.deleteRows(at: indexPathsToRemove, with: .left)
+//
+//    } catch let delErr {
+//      print("Failed to delete companies: ", delErr)
+//    }
+    var indexPathsToRemove = [IndexPath]()
+    for (index, _) in companies.enumerated() {
+      let indexPath = IndexPath(row: index, section: 0)
+      indexPathsToRemove.append(indexPath)
     }
+    companies.removeAll()
+    tableView.deleteRows(at: indexPathsToRemove, with: .left)
+    
+    self.companies = CoreDataManager.shared.deleteCompanies()
+    
   }
   
   @objc func handleAddButtonTapped() {
