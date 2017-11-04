@@ -16,6 +16,17 @@ class CompanyCell: UITableViewCell {
       
       if let imageData = company?.imageData {
         companyImageView.image = UIImage(data: imageData)
+        
+        if let name = company?.name, let founded = company?.founded {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "MMM, dd, yyyy"
+          let foundedDateString = dateFormatter.string(from: founded)
+          let dateString = "\(name) - Founded: \(foundedDateString)"
+          nameFoundedDateLabel.text = dateString
+        } else {
+          nameFoundedDateLabel.text = company?.name
+        }
+        
       }
     }
   }
