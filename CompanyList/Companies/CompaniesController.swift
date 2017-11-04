@@ -12,27 +12,7 @@ import CoreData
 class CompaniesController: UITableViewController {
   
   let cellId = "cellId"
-  var companies = [Company]() 
-  
-//  private func fetchCompanies() {
-//    // attempt to fetch core data
-//    let context = CoreDataManager.shared.persistentContainer.viewContext
-//
-//    let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
-//
-//    do {
-//      let companies = try context.fetch(fetchRequest)
-//      companies.forEach({ (company) in
-//        print(company.name ?? "")
-//      })
-//
-//      self.companies = companies
-//      self.tableView.reloadData()
-//
-//    } catch let fetchErr {
-//      print("failed to fetch companies: ", fetchErr)
-//    }
-//  }
+  var companies = [Company]()
   
   override func viewDidLoad() {
     super.viewDidLoad()

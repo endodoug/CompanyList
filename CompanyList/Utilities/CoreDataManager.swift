@@ -25,7 +25,7 @@ struct CoreDataManager {
   
   func fetchCompanies() -> [Company] {
     // attempt to fetch core data
-    let context = CoreDataManager.shared.persistentContainer.viewContext
+    let context = persistentContainer.viewContext
     
     let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
     
