@@ -27,7 +27,7 @@ class CompaniesController: UITableViewController {
     tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
     
     navigationItem.title = "Companies"
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAddButtonTapped))
+    setupPlusButtonInNavBar(selector: #selector(handleAddButtonTapped))
     
   }
   

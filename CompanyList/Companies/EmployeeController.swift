@@ -22,7 +22,7 @@ class EmployeeController: UITableViewController {
     
     tableView.backgroundColor = ThemeColor.teal
     
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus"), style: .plain, target: self, action: #selector(handleAdd))
+    setupPlusButtonInNavBar(selector: #selector(handleAdd))
     
   }
   
