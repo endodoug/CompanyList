@@ -83,11 +83,11 @@ class CreateCompanyController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancelTapped))
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveTapped))
     
     view.backgroundColor = ThemeColor.asphalt
     setUpUI()
+    setupCancelButtonInNavBar(selector: #selector(handleCancelTapped))
     
   }
   
