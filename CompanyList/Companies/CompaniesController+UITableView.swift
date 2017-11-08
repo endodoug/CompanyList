@@ -10,6 +10,15 @@ import UIKit
 
 extension CompaniesController {
   
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    let company = companies[indexPath.row]
+    let employeesController = EmployeeController()
+    
+    employeesController.company = company
+    navigationController?.pushViewController(employeesController, animated: true)
+  }
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return companies.count
   }
