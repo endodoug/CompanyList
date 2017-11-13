@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol CreateEmployeeControllerDelegate {
+  func didAddEmployee(employee: Employee)
+}
+
 class CreateEmployeeController: UIViewController {
+  
+  var delegate: CreateCompanyControllerDelegate?
   
   let nameLabel: UILabel = {
     let label = UILabel()
@@ -46,7 +52,11 @@ class CreateEmployeeController: UIViewController {
       print(error)
       
     } else {
-      dismiss(animated: true, completion: nil)
+      // creation success!
+      dismiss(animated: true, completion: {
+        // call the delegate somehow
+        
+      })
     }
  
   }
