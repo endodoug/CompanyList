@@ -37,6 +37,9 @@ class CreateEmployeeController: UIViewController {
   
   @objc fileprivate func handleSaveTapped() {
     print("trying to save")
+    guard let employeeName = nameTextField.text else { return }
+    CoreDataManager.shared.createEmployee(employeeName: employeeName)
+    
   }
   
   @objc fileprivate func handleCancelTapped() {
