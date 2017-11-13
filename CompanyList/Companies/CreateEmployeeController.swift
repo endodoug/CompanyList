@@ -46,7 +46,9 @@ class CreateEmployeeController: UIViewController {
     
     view.addSubview(nameTextField)
     nameTextField.anchor(top: nameLabel.topAnchor, left: nameLabel.rightAnchor, bottom: nameLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+
   }
+  
   
 }
 
