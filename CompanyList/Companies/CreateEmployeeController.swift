@@ -40,6 +40,8 @@ class CreateEmployeeController: UIViewController {
     guard let employeeName = nameTextField.text else { return }
     CoreDataManager.shared.createEmployee(employeeName: employeeName)
     
+    dismiss(animated: true, completion: nil)
+    
   }
   
   @objc fileprivate func handleCancelTapped() {
