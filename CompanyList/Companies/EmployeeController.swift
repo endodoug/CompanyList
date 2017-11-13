@@ -42,6 +42,11 @@ class EmployeeController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+    let employee = employees[indexPath.row]
+    cell.textLabel?.text = employee.name
+    cell.backgroundColor = ThemeColor.gray
+    cell.textLabel?.textColor = .white
+    cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
     return cell
   }
   
