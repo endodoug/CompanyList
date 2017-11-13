@@ -22,9 +22,13 @@ class EmployeeController: UITableViewController {
   private func fetchEmployees() {
     print("trying to fetch employees")
     let context = CoreDataManager.shared.persistentContainer.viewContext
-    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
+    let request = NSFetchRequest<Employee>(entityName: "Employee")
     
-    context.fetch(request)
+    do {
+      let employees = try context.fetch(request)
+    } catch let fetchErr {
+      print("☢️ Failed to fetch: ", fetchErr)
+    }
   }
   
   override func viewDidLoad() {
