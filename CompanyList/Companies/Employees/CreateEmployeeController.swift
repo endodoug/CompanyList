@@ -44,9 +44,9 @@ class CreateEmployeeController: UIViewController {
   @objc fileprivate func handleSaveTapped() {
     print("trying to save")
     guard let employeeName = nameTextField.text else { return }
-    let error = CoreDataManager.shared.createEmployee(employeeName: employeeName)
+    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName)
     
-    if let error = error {
+    if let error = tuple.1 {
       // present an error modal
       // perhaps a UIAlertController to show error message
       print(error)
@@ -55,6 +55,7 @@ class CreateEmployeeController: UIViewController {
       // creation success!
       dismiss(animated: true, completion: {
         // call the delegate somehow
+        self.delegate?.didAddEmployee(employee: tuple.0!)
         
       })
     }

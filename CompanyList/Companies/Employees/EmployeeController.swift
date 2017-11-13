@@ -70,7 +70,8 @@ class EmployeeController: UITableViewController {
 
 extension EmployeeController: CreateEmployeeControllerDelegate {
   func didAddEmployee(employee: Employee) {
-    //
+    employees.append(employee)
+    tableView.reloadData()
   }
   
   
