@@ -12,6 +12,8 @@ import CoreData
 class EmployeeController: UITableViewController {
   
   var company: Company?
+  var employees = [Employee]()
+  let cellId = "cellId"
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -26,17 +28,28 @@ class EmployeeController: UITableViewController {
     
     do {
       let employees = try context.fetch(request)
-      employees.forEach { print("Employee name: ", $0.name ?? "") }
+      self.employees = employees
+//      employees.forEach { print("Employee name: ", $0.name ?? "") }
+      
     } catch let fetchErr {
       print("☢️ Failed to fetch: ", fetchErr)
     }
+  }
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return employees.count
+  }
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+    return cell
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.backgroundColor = ThemeColor.teal
-    
+    tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     setupPlusButtonInNavBar(selector: #selector(handleAdd))
     
   }
