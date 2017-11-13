@@ -66,3 +66,15 @@ class EmployeeController: UITableViewController {
     present(navController, animated: true, completion: nil)
   }
 }
+
+extension EmployeeController: CreateCompanyControllerDelegate {
+  func didAddCompany(company: Company) {
+    <#code#>
+  }
+  
+  func didEditCompany(company: Company) {
+    <#code#>
+  }
+  
+  
+}
