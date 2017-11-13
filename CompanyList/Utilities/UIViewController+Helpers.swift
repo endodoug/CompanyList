@@ -19,4 +19,17 @@ extension UIViewController {
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: selector)
   }
   
+  func setupKhakiBackgroudView(height: CGFloat) -> UIView {
+    let khakiBackgroundView: UIView = {
+      let view = UIView()
+      view.backgroundColor = ThemeColor.khaki
+      return view
+    }()
+    
+    view.addSubview(khakiBackgroundView)
+    khakiBackgroundView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: height)
+    
+    return khakiBackgroundView
+  }
+  
 }

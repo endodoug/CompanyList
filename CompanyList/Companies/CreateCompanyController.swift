@@ -100,14 +100,7 @@ class CreateCompanyController: UIViewController {
   }
   
   func setUpUI() {
-    let khakiBackgroundView: UIView = {
-      let view = UIView()
-      view.backgroundColor = ThemeColor.khaki
-      return view
-    }()
-    
-    view.addSubview(khakiBackgroundView)
-    khakiBackgroundView.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 350)
+    let khakiBackgroundView = setupKhakiBackgroudView(height: 350)
     
     view.addSubview(companyImageView)
     companyImageView.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 100, height: 100)

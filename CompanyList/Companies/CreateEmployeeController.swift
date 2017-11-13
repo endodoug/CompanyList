@@ -17,6 +17,7 @@ class CreateEmployeeController: UIViewController {
     view.backgroundColor = ThemeColor.asphalt
     navigationItem.title = "Create Employee"
     setupCancelButtonInNavBar(selector: #selector(handleCancelTapped))
+    _ = setupKhakiBackgroudView(height: 50)
   }
   
   @objc fileprivate func handleCancelTapped() {
@@ -24,3 +25,5 @@ class CreateEmployeeController: UIViewController {
   }
   
 }
+
+
