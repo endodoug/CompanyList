@@ -18,7 +18,6 @@ class EmployeeController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationItem.title = company?.name
-    fetchEmployees()
   }
   
   private func fetchEmployees() {
@@ -56,6 +55,7 @@ class EmployeeController: UITableViewController {
     tableView.backgroundColor = ThemeColor.teal
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     setupPlusButtonInNavBar(selector: #selector(handleAdd))
+    fetchEmployees()
     
   }
   
