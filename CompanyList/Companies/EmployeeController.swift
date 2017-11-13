@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EmployeeController: UITableViewController {
   
@@ -20,6 +21,10 @@ class EmployeeController: UITableViewController {
   
   private func fetchEmployees() {
     print("trying to fetch employees")
+    let context = CoreDataManager.shared.persistentContainer.viewContext
+    let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Employee")
+    
+    context.fetch(request)
   }
   
   override func viewDidLoad() {
