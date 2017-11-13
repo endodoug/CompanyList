@@ -15,6 +15,11 @@ class EmployeeController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationItem.title = company?.name
+    fetchEmployees()
+  }
+  
+  private func fetchEmployees() {
+    print("trying to fetch employees")
   }
   
   override func viewDidLoad() {
