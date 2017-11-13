@@ -14,7 +14,7 @@ protocol CreateEmployeeControllerDelegate {
 
 class CreateEmployeeController: UIViewController {
   
-  var delegate: CreateCompanyControllerDelegate?
+  var delegate: CreateEmployeeControllerDelegate?
   
   let nameLabel: UILabel = {
     let label = UILabel()

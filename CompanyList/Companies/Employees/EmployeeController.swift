@@ -62,18 +62,15 @@ class EmployeeController: UITableViewController {
   @objc fileprivate func handleAdd() {
     print("adding employee")
     let createEmployeeController = CreateEmployeeController()
+    createEmployeeController.delegate = self
     let  navController = UINavigationController(rootViewController: createEmployeeController)
     present(navController, animated: true, completion: nil)
   }
 }
 
-extension EmployeeController: CreateCompanyControllerDelegate {
-  func didAddCompany(company: Company) {
-    <#code#>
-  }
-  
-  func didEditCompany(company: Company) {
-    <#code#>
+extension EmployeeController: CreateEmployeeControllerDelegate {
+  func didAddEmployee(employee: Employee) {
+    //
   }
   
   
