@@ -29,9 +29,14 @@ class CreateEmployeeController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = ThemeColor.asphalt
     navigationItem.title = "Create Employee"
+    navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveTapped))
     setupCancelButtonInNavBar(selector: #selector(handleCancelTapped))
     _ = setupKhakiBackgroudView(height: 50)
     setupUI()
+  }
+  
+  @objc fileprivate func handleSaveTapped() {
+    print("trying to save")
   }
   
   @objc fileprivate func handleCancelTapped() {
