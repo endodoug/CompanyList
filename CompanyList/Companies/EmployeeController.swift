@@ -26,6 +26,7 @@ class EmployeeController: UITableViewController {
     
     do {
       let employees = try context.fetch(request)
+      employees.forEach { print("Employee name: ", $0.name ?? "") }
     } catch let fetchErr {
       print("☢️ Failed to fetch: ", fetchErr)
     }
