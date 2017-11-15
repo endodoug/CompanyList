@@ -55,7 +55,7 @@ class EmployeeController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    tableView.backgroundColor = ThemeColor.teal
+    tableView.backgroundColor = ThemeColor.asphalt
     tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     setupPlusButtonInNavBar(selector: #selector(handleAdd))
     fetchEmployees()
@@ -66,6 +66,7 @@ class EmployeeController: UITableViewController {
     print("adding employee")
     let createEmployeeController = CreateEmployeeController()
     createEmployeeController.delegate = self
+    createEmployeeController.company = company
     let  navController = UINavigationController(rootViewController: createEmployeeController)
     present(navController, animated: true, completion: nil)
   }

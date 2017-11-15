@@ -15,6 +15,7 @@ protocol CreateEmployeeControllerDelegate {
 class CreateEmployeeController: UIViewController {
   
   var delegate: CreateEmployeeControllerDelegate?
+  var company: Company?
   
   let nameLabel: UILabel = {
     let label = UILabel()
@@ -42,9 +43,9 @@ class CreateEmployeeController: UIViewController {
   }
   
   @objc fileprivate func handleSaveTapped() {
-    print("trying to save")
+    guard let company = company else { return }
     guard let employeeName = nameTextField.text else { return }
-    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName)
+    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company)
     
     if let error = tuple.1 {
       // present an error modal

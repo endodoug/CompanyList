@@ -10,10 +10,12 @@
         <attribute name="founded" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employees" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="company" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <entity name="Employee" representedClassName="Employee" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="employee" inverseEntity="Address" syncable="YES"/>
+        <relationship name="company" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="employees" inverseEntity="Company" syncable="YES"/>
         <relationship name="employeeInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmployeeInfo" inverseName="employee" inverseEntity="EmployeeInfo" syncable="YES"/>
     </entity>
     <entity name="EmployeeInfo" representedClassName="EmployeeInfo" syncable="YES" codeGenerationType="class">
@@ -22,9 +24,9 @@
         <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="employeeInfo" inverseEntity="Employee" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Company" positionX="-45" positionY="0" width="128" height="90"/>
-        <element name="Employee" positionX="178" positionY="150" width="128" height="88"/>
-        <element name="EmployeeInfo" positionX="639" positionY="144" width="128" height="88"/>
-        <element name="Address" positionX="358" positionY="-81" width="128" height="103"/>
+        <element name="Address" positionX="459" positionY="-76" width="128" height="103"/>
+        <element name="Company" positionX="-54" positionY="144" width="128" height="103"/>
+        <element name="Employee" positionX="178" positionY="150" width="128" height="103"/>
+        <element name="EmployeeInfo" positionX="448" positionY="155" width="128" height="88"/>
     </elements>
 </model>
