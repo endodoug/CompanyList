@@ -62,7 +62,8 @@ struct CoreDataManager {
     // create EmployeeInfo
     let employeeInfo = NSEntityDescription.insertNewObject(forEntityName: "EmployeeInfo", into: context) as! EmployeeInfo
     
-    employeeInfo.setValue("456-123-5677", forKey: "taxid")
+    employeeInfo.taxid = "456-123-5677"
+//    employeeInfo.setValue(employeeInfo.taxid, forKey: "taxid")
     employee.employeeInfo = employeeInfo
     
     
