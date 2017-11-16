@@ -58,6 +58,13 @@ class CreateEmployeeController: UIViewController {
   @objc fileprivate func handleSaveTapped() {
     guard let company = company else { return }
     guard let employeeName = nameTextField.text else { return }
+    
+    // convert the birthdayTextField.text into a date object
+    guard let birthdayText = birthdayTextField.text else { return }
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy"
+    let birthdayDate = dateFormatter.date(from: birthdayText)
+    
     let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company)
     
     if let error = tuple.1 {
