@@ -21,8 +21,9 @@ class EmployeeController: UITableViewController {
   }
   
   private func fetchEmployees() {
+    guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
 
-    self.employees = company?.employees?.allObjects as! [Employee]
+    self.employees = companyEmployees
 //    print("trying to fetch employees")
 //    let context = CoreDataManager.shared.persistentContainer.viewContext
 //    let request = NSFetchRequest<Employee>(entityName: "Employee")

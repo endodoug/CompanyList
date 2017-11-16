@@ -38,7 +38,7 @@ class CreateEmployeeController: UIViewController {
     navigationItem.title = "Create Employee"
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveTapped))
     setupCancelButtonInNavBar(selector: #selector(handleCancelTapped))
-    _ = setupKhakiBackgroudView(height: 50)
+    
     setupUI()
   }
   
@@ -69,6 +69,7 @@ class CreateEmployeeController: UIViewController {
   
   private func setupUI() {
     
+    _ = setupKhakiBackgroudView(height: 100)
     
     view.addSubview(nameLabel)
     nameLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 100, height: 50)
