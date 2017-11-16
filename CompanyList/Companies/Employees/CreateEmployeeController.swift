@@ -65,7 +65,7 @@ class CreateEmployeeController: UIViewController {
     dateFormatter.dateFormat = "MM/dd/yyyy"
     let birthdayDate = dateFormatter.date(from: birthdayText)
     
-    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company)
+    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company, birthday: birthdayDate!)
     
     if let error = tuple.1 {
       // present an error modal
