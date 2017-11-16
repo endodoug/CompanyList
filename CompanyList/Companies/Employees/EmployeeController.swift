@@ -35,7 +35,11 @@ class EmployeeController: UITableViewController {
     let employee = employees[indexPath.row]
     cell.textLabel?.text = employee.name
     if let birthday = employee.employeeInfo?.birthday {
-      cell.textLabel?.text = "\(employee.name ?? "")     \(birthday)"
+      
+      let dateFormatter = DateFormatter()
+      dateFormatter.dateFormat = "MMM, dd, yyyy"
+      
+      cell.textLabel?.text = "\(employee.name ?? "")     \(dateFormatter.string(from: birthday))"
     }
 //    if let taxId = employee.employeeInfo?.taxid {
 //      cell.textLabel?.text = "\(employee.name ?? "")       \(taxId)"
