@@ -32,13 +32,26 @@ class CreateEmployeeController: UIViewController {
     return textField
   }()
   
+  let birthdayLabel: UILabel = {
+    let label = UILabel()
+    label.text = "Birthday"
+    label.font = UIFont.boldSystemFont(ofSize: 16)
+    label.textColor = ThemeColor.asphalt
+    return label
+  }()
+  
+  let birthdayTextField: UITextField = {
+    let textField = UITextField()
+    textField.placeholder = "MM/DD/YYYY"
+    return textField
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = ThemeColor.asphalt
     navigationItem.title = "Create Employee"
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSaveTapped))
     setupCancelButtonInNavBar(selector: #selector(handleCancelTapped))
-    
     setupUI()
   }
   
@@ -76,6 +89,12 @@ class CreateEmployeeController: UIViewController {
     
     view.addSubview(nameTextField)
     nameTextField.anchor(top: nameLabel.topAnchor, left: nameLabel.rightAnchor, bottom: nameLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    
+    view.addSubview(birthdayLabel)
+    birthdayLabel.anchor(top: nameLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    
+    view.addSubview(birthdayTextField)
+    birthdayTextField.anchor(top: birthdayLabel.topAnchor, left: nameTextField.leftAnchor, bottom: birthdayLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
 
   }
   
