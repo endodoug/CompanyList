@@ -24,18 +24,6 @@ class EmployeeController: UITableViewController {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
 
     self.employees = companyEmployees
-//    print("trying to fetch employees")
-//    let context = CoreDataManager.shared.persistentContainer.viewContext
-//    let request = NSFetchRequest<Employee>(entityName: "Employee")
-//
-//    do {
-//      let employees = try context.fetch(request)
-//      self.employees = employees
-////      employees.forEach { print("Employee name: ", $0.name ?? "") }
-//
-//    } catch let fetchErr {
-//      print("☢️ Failed to fetch: ", fetchErr)
-//    }
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,9 +34,12 @@ class EmployeeController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     let employee = employees[indexPath.row]
     cell.textLabel?.text = employee.name
-    if let taxId = employee.employeeInfo?.taxid {
-      cell.textLabel?.text = "\(employee.name ?? "")       \(taxId)"
+    if let birthday = employee.employeeInfo?.birthday {
+      cell.textLabel?.text = "\(employee.name ?? "")     \(birthday)"
     }
+//    if let taxId = employee.employeeInfo?.taxid {
+//      cell.textLabel?.text = "\(employee.name ?? "")       \(taxId)"
+//    }
     cell.backgroundColor = ThemeColor.gray
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
