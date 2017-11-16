@@ -72,9 +72,14 @@ class CreateEmployeeController: UIViewController {
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MM/dd/yyyy"
-    let birthdayDate = dateFormatter.date(from: birthdayText)
+    guard let birthdayDate = dateFormatter.date(from: birthdayText) else {
+      let alertController = UIAlertController(title: "Birthday Format invalid", message: "Please enter a birthday in the following format \n MM/DD/YYYY", preferredStyle: .alert)
+      alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+      present(alertController, animated: true, completion: nil)
+      return
+    }
     
-    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company, birthday: birthdayDate!)
+    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company, birthday: birthdayDate)
     
     if let error = tuple.1 {
       // present an error modal
