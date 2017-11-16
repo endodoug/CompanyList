@@ -21,18 +21,20 @@ class EmployeeController: UITableViewController {
   }
   
   private func fetchEmployees() {
-    print("trying to fetch employees")
-    let context = CoreDataManager.shared.persistentContainer.viewContext
-    let request = NSFetchRequest<Employee>(entityName: "Employee")
-    
-    do {
-      let employees = try context.fetch(request)
-      self.employees = employees
-//      employees.forEach { print("Employee name: ", $0.name ?? "") }
-      
-    } catch let fetchErr {
-      print("☢️ Failed to fetch: ", fetchErr)
-    }
+
+    self.employees = company?.employees?.allObjects as! [Employee]
+//    print("trying to fetch employees")
+//    let context = CoreDataManager.shared.persistentContainer.viewContext
+//    let request = NSFetchRequest<Employee>(entityName: "Employee")
+//
+//    do {
+//      let employees = try context.fetch(request)
+//      self.employees = employees
+////      employees.forEach { print("Employee name: ", $0.name ?? "") }
+//
+//    } catch let fetchErr {
+//      print("☢️ Failed to fetch: ", fetchErr)
+//    }
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
