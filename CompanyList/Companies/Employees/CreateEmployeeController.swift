@@ -64,18 +64,14 @@ class CreateEmployeeController: UIViewController {
     
     // validating birthday here
     if birthdayText.isEmpty {
-      let alertController = UIAlertController(title: "Empty Birthday", message: "Please enter a birthday.", preferredStyle: .alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-      present(alertController, animated: true, completion: nil)
+      showErrorAlertController(title: "Empty Birthday", message: "Please enter a birthday.")
       return
     }
     
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MM/dd/yyyy"
     guard let birthdayDate = dateFormatter.date(from: birthdayText) else {
-      let alertController = UIAlertController(title: "Birthday Format invalid", message: "Please enter a birthday in the following format \n MM/DD/YYYY", preferredStyle: .alert)
-      alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-      present(alertController, animated: true, completion: nil)
+      showErrorAlertController(title: "Invalid Birthday", message: "Please enter a birthday in the following format \n MM/DD/YYYY")
       return
     }
     
@@ -117,6 +113,12 @@ class CreateEmployeeController: UIViewController {
     view.addSubview(birthdayTextField)
     birthdayTextField.anchor(top: birthdayLabel.topAnchor, left: nameTextField.leftAnchor, bottom: birthdayLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
 
+  }
+  
+  private func showErrorAlertController(title: String, message: String) {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    present(alertController, animated: true, completion: nil)
   }
   
   
