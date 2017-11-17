@@ -61,7 +61,7 @@ class EmployeeController: UITableViewController {
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    return 2
+    return allEmployeeNames.count
   }
   
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -81,10 +81,11 @@ class EmployeeController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    if section == 0 {
-      return shortNameEmployees.count
-    }
-      return longNameEmployees.count
+    return allEmployeeNames[section].count
+//    if section == 0 {
+//      return shortNameEmployees.count
+//    }
+//      return longNameEmployees.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
