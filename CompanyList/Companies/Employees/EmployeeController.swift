@@ -20,13 +20,20 @@ class EmployeeController: UITableViewController {
     navigationItem.title = company?.name
   }
   
-  var shortNames = [Employee]()
-  var longNames = [Employee]()
+  var shortNameEmployees = [Employee]()
+  var longNameEmployees = [Employee]()
   
   private func fetchEmployees() {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
 
-//    self.employees = companyEmployees
+    shortNameEmployees = companyEmployees.filter({ (employee) -> Bool in
+      if let count = employee.name?.count {
+        return count < 12
+      }
+      return false
+    })
+    print(shortNameEmployees.description)
+    //    self.employees = companyEmployees
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
