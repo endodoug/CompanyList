@@ -20,10 +20,13 @@ class EmployeeController: UITableViewController {
     navigationItem.title = company?.name
   }
   
+  var shortNames = [Employee]()
+  var longNames = [Employee]()
+  
   private func fetchEmployees() {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
 
-    self.employees = companyEmployees
+//    self.employees = companyEmployees
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,8 +36,12 @@ class EmployeeController: UITableViewController {
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let label = UILabel()
     label.backgroundColor = ThemeColor.khaki
-    label.text = "Header"
-    
+    if section == 0 {
+      label.text = "Long Names"
+    } else {
+      label.text = "Short Names"
+    }
+    label.font = UIFont.boldSystemFont(ofSize: 16)
     return label
   }
   
