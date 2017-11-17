@@ -28,11 +28,19 @@ class EmployeeController: UITableViewController {
 
     shortNameEmployees = companyEmployees.filter({ (employee) -> Bool in
       if let count = employee.name?.count {
-        return count < 12
+        return count < 8
+      }
+      return false
+    })
+    
+    longNameEmployees = companyEmployees.filter({ (employee) -> Bool in
+      if let count = employee.name?.count {
+        return count > 8
       }
       return false
     })
     print(shortNameEmployees.description)
+    print (longNameEmployees.count)
     //    self.employees = companyEmployees
   }
   
