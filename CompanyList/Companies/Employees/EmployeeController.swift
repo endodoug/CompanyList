@@ -60,17 +60,15 @@ class EmployeeController: UITableViewController {
     //    self.employees = companyEmployees
   }
   
-  override func numberOfSections(in tableView: UITableView) -> Int {
-    return allEmployeeNames.count
-  }
-  
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let label = UILabel()
     label.backgroundColor = ThemeColor.khaki
     if section == 0 {
+      label.text = "Short Names"
+    } else if section == 1 {
       label.text = "Long Names"
     } else {
-      label.text = "Short Names"
+      label.text = "Really Long Names"
     }
     label.font = UIFont.boldSystemFont(ofSize: 16)
     return label
@@ -80,18 +78,19 @@ class EmployeeController: UITableViewController {
     return 50
   }
   
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return allEmployeeNames.count
+  }
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return allEmployeeNames[section].count
-//    if section == 0 {
-//      return shortNameEmployees.count
-//    }
-//      return longNameEmployees.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     
-    let employee = indexPath.section == 0 ? shortNameEmployees[indexPath.row] : longNameEmployees[indexPath.row]
+    let employee = allEmployeeNames[indexPath.section][indexPath.row]
+//    let employee = indexPath.section == 0 ? shortNameEmployees[indexPath.row] : longNameEmployees[indexPath.row]
 //    let employee = employees[indexPath.row]
     cell.textLabel?.text = employee.name
     if let birthday = employee.employeeInfo?.birthday {
