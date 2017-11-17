@@ -22,6 +22,7 @@ class EmployeeController: UITableViewController {
   
   var shortNameEmployees = [Employee]()
   var longNameEmployees = [Employee]()
+  var reallyLongNameEmployees = [Employee]()
   
   private func fetchEmployees() {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
@@ -35,12 +36,19 @@ class EmployeeController: UITableViewController {
     
     longNameEmployees = companyEmployees.filter({ (employee) -> Bool in
       if let count = employee.name?.count {
-        return count > 8
+        return count > 8 && count < 12
       }
       return false
     })
-    print(shortNameEmployees.description)
-    print (longNameEmployees.count)
+    
+    reallyLongNameEmployees = companyEmployees.filter({ (employee) -> Bool in
+      if let count = employee.name?.count {
+        return count > 12
+      }
+      return false
+    })
+    
+    print(shortNameEmployees.count, longNameEmployees.count, reallyLongNameEmployees.count)
     //    self.employees = companyEmployees
   }
   
