@@ -26,6 +26,22 @@ class EmployeeController: UITableViewController {
     self.employees = companyEmployees
   }
   
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return 2
+  }
+  
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let label = UILabel()
+    label.backgroundColor = ThemeColor.khaki
+    label.text = "Header"
+    
+    return label
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 50
+  }
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return employees.count
   }
