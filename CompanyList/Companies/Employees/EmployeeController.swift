@@ -65,12 +65,17 @@ class EmployeeController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return employees.count
+    if section == 0 {
+      return shortNameEmployees.count
+    }
+      return longNameEmployees.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-    let employee = employees[indexPath.row]
+    
+    let employee = indexPath.section == 0 ? shortNameEmployees[indexPath.row] : longNameEmployees[indexPath.row]
+//    let employee = employees[indexPath.row]
     cell.textLabel?.text = employee.name
     if let birthday = employee.employeeInfo?.birthday {
       
