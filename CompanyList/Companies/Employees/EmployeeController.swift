@@ -24,6 +24,8 @@ class EmployeeController: UITableViewController {
   var longNameEmployees = [Employee]()
   var reallyLongNameEmployees = [Employee]()
   
+  var allEmployeeNames = [[Employee]]()
+  
   private func fetchEmployees() {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
 
@@ -47,6 +49,12 @@ class EmployeeController: UITableViewController {
       }
       return false
     })
+    
+    allEmployeeNames = [
+      shortNameEmployees,
+      longNameEmployees,
+      reallyLongNameEmployees
+    ]
     
     print(shortNameEmployees.count, longNameEmployees.count, reallyLongNameEmployees.count)
     //    self.employees = companyEmployees
