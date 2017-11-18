@@ -54,7 +54,7 @@ struct CoreDataManager {
     }
   }
   
-  func createEmployee(employeeName: String, company: Company, birthday: Date) -> (Employee?, Error?) {
+  func createEmployee(employeeName: String, employeeType: String, company: Company, birthday: Date) -> (Employee?, Error?) {
     let context = persistentContainer.viewContext
     
     //create Employee
@@ -62,6 +62,7 @@ struct CoreDataManager {
     employee.setValue(employeeName, forKey: "name")
     
     employee.company = company
+    employee.type = employeeType
     
     // check company is setup correctly
 //    let company = Company(context: context)

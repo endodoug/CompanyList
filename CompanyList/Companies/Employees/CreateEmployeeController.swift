@@ -74,8 +74,11 @@ class CreateEmployeeController: UIViewController {
       showErrorAlertController(title: "Invalid Birthday", message: "Please enter a birthday in the following format \n MM/DD/YYYY")
       return
     }
+    // save the value of the segmented controller
+    guard let employeeType = employeeTypeSegmentedController.titleForSegment(at: employeeTypeSegmentedController.selectedSegmentIndex) else { return }
     
-    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, company: company, birthday: birthdayDate)
+    // Where does the company come from?
+    let tuple = CoreDataManager.shared.createEmployee(employeeName: employeeName, employeeType: employeeType, company: company, birthday: birthdayDate)
     
     if let error = tuple.1 {
       // present an error modal
