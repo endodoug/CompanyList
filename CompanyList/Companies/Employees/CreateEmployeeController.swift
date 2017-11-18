@@ -87,19 +87,24 @@ class CreateEmployeeController: UIViewController {
       dismiss(animated: true, completion: {
         // call the delegate somehow
         self.delegate?.didAddEmployee(employee: tuple.0!)
-        
       })
     }
- 
   }
   
   @objc fileprivate func handleCancelTapped() {
     dismiss(animated: true, completion: nil)
   }
   
+  let employeeTypeSegmentedController: UISegmentedControl = {
+    let types = ["Executive", "Senior Mgmt", "Staff"]
+    let segmentedControl = UISegmentedControl(items: types)
+    segmentedControl.tintColor = ThemeColor.red
+    return segmentedControl
+  }()
+  
   private func setupUI() {
     
-    _ = setupKhakiBackgroudView(height: 100)
+    _ = setupKhakiBackgroudView(height: 150)
     
     view.addSubview(nameLabel)
     nameLabel.anchor(top: view.topAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 100, height: 50)
@@ -108,10 +113,13 @@ class CreateEmployeeController: UIViewController {
     nameTextField.anchor(top: nameLabel.topAnchor, left: nameLabel.rightAnchor, bottom: nameLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
     
     view.addSubview(birthdayLabel)
-    birthdayLabel.anchor(top: nameLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    birthdayLabel.anchor(top: nameLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
     
     view.addSubview(birthdayTextField)
     birthdayTextField.anchor(top: birthdayLabel.topAnchor, left: nameTextField.leftAnchor, bottom: birthdayLabel.bottomAnchor, right: view.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 0)
+    
+    view.addSubview(employeeTypeSegmentedController)
+    employeeTypeSegmentedController.anchor(top: birthdayLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 16, paddingBottom: 0, paddingRight: 16, width: 0, height: 34)
 
   }
   
@@ -120,8 +128,6 @@ class CreateEmployeeController: UIViewController {
     alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     present(alertController, animated: true, completion: nil)
   }
-  
-  
 }
 
 
