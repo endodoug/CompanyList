@@ -28,45 +28,21 @@ class EmployeeController: UITableViewController {
     super.viewWillAppear(animated)
     navigationItem.title = company?.name
   }
-  
-  var shortNameEmployees = [Employee]()
-  var longNameEmployees = [Employee]()
-  var reallyLongNameEmployees = [Employee]()
-  
+
   var allEmployeeNames = [[Employee]]()
   
   private func fetchEmployees() {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
 
-    shortNameEmployees = companyEmployees.filter({ (employee) -> Bool in
-      if let count = employee.name?.count {
-        return count < 8
-      }
-      return false
-    })
-    
-    longNameEmployees = companyEmployees.filter({ (employee) -> Bool in
-      if let count = employee.name?.count {
-        return count > 8 && count < 12
-      }
-      return false
-    })
-    
-    reallyLongNameEmployees = companyEmployees.filter({ (employee) -> Bool in
-      if let count = employee.name?.count {
-        return count > 12
-      }
-      return false
-    })
-    
+    // filter for executives
+    let executive = companyEmployees.filter { (employee) -> Bool in
+      return employee.type == "Executive"
+    }
+
     allEmployeeNames = [
-      shortNameEmployees,
-      longNameEmployees,
-      reallyLongNameEmployees
+      executive
     ]
     
-    print(shortNameEmployees.count, longNameEmployees.count, reallyLongNameEmployees.count)
-    //    self.employees = companyEmployees
   }
   
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
