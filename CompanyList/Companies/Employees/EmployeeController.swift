@@ -43,7 +43,8 @@ class EmployeeController: UITableViewController {
     
     allEmployeeNames = [
       executive,
-      seniorManagement
+      seniorManagement,
+      companyEmployees.filter { $0.type == "Staff" }
     ]
     
   }
