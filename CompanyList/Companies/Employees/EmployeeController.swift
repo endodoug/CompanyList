@@ -31,21 +31,37 @@ class EmployeeController: UITableViewController {
 
   var allEmployeeNames = [[Employee]]()
   
+  var employeeTypes = [
+    EmployeeType.Executive.rawValue,
+    EmployeeType.SeniorManagement.rawValue,
+    EmployeeType.Staff.rawValue
+  ]
+  
   private func fetchEmployees() {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
-
-    // filter for executives
-    let executive = companyEmployees.filter { (employee) -> Bool in
-      return employee.type == EmployeeType.Executive.rawValue
+    
+    // use new array and loop to perform the filter
+    employeeTypes.forEach { (employeeType) in
+      
+      // somehow construct my allEmployeeNames Array
+      allEmployeeNames.append(
+        companyEmployees.filter { $0.type == employeeType }
+      )
+      
     }
 
-    let seniorManagement = companyEmployees.filter { $0.type == EmployeeType.SeniorManagement.rawValue }
-    
-    allEmployeeNames = [
-      executive,
-      seniorManagement,
-      companyEmployees.filter { $0.type == EmployeeType.Staff.rawValue }
-    ]
+    // filter for executives
+//    let executive = companyEmployees.filter { (employee) -> Bool in
+//      return employee.type == EmployeeType.Executive.rawValue
+//    }
+//
+//    let seniorManagement = companyEmployees.filter { $0.type == EmployeeType.SeniorManagement.rawValue }
+//
+//    allEmployeeNames = [
+//      executive,
+//      seniorManagement,
+//      companyEmployees.filter { $0.type == EmployeeType.Staff.rawValue }
+//    ]
     
   }
   
