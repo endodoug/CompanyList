@@ -24,6 +24,7 @@
 		B798E2371F9C50EF002F96B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E2361F9C50EF002F96B1 /* Extensions.swift */; };
 		B798E25C1F9F9221002F96B1 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25B1F9F9221002F96B1 /* Company.swift */; };
 		B798E25E1F9F9D52002F96B1 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */; };
+		B7D3FFE31FC13E4500AA0819 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D3FFE21FC13E4500AA0819 /* EmployeeType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B798E2361F9C50EF002F96B1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B798E25B1F9F9221002F96B1 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
+		B7D3FFE21FC13E4500AA0819 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			children = (
 				B77C6AA91FB2BCA200E95E69 /* EmployeeController.swift */,
 				B77C6AAD1FB2C26100E95E69 /* CreateEmployeeController.swift */,
+				B7D3FFE21FC13E4500AA0819 /* EmployeeType.swift */,
 			);
 			path = Employees;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				B77C6AAE1FB2C26100E95E69 /* CreateEmployeeController.swift in Sources */,
 				B77CEDC61FAE74BD005C9EF3 /* CompaniesController+UITableView.swift in Sources */,
 				B72411A21FA7A08E00BD7FA5 /* UIView+Utilities.swift in Sources */,
+				B7D3FFE31FC13E4500AA0819 /* EmployeeType.swift in Sources */,
 				B77C6AAC1FB2C00C00E95E69 /* UIViewController+Helpers.swift in Sources */,
 				B77C6AAA1FB2BCA200E95E69 /* EmployeeController.swift in Sources */,
 				B73DBEBF1FA13C490099AA2B /* CompanyModels.xcdatamodeld in Sources */,
