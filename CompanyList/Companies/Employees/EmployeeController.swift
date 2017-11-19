@@ -21,7 +21,7 @@ class IndentedLabel: UILabel {
 class EmployeeController: UITableViewController {
   
   var company: Company?
-  var employees = [Employee]()
+//  var employees = [Employee]()
   let cellId = "cellId"
   
   override func viewWillAppear(_ animated: Bool) {
@@ -129,7 +129,6 @@ class EmployeeController: UITableViewController {
   }
   
   @objc fileprivate func handleAdd() {
-    print("adding employee")
     let createEmployeeController = CreateEmployeeController()
     createEmployeeController.delegate = self
     createEmployeeController.company = company
@@ -140,7 +139,8 @@ class EmployeeController: UITableViewController {
 
 extension EmployeeController: CreateEmployeeControllerDelegate {
   func didAddEmployee(employee: Employee) {
-    employees.append(employee)
+    fetchEmployees()
+//    employees.append(employee)
     tableView.reloadData()
   }
   
