@@ -73,11 +73,11 @@ class EmployeeController: UITableViewController {
     let label = IndentedLabel()
     label.backgroundColor = ThemeColor.khaki
     if section == 0 {
-      label.text = "Short Names"
+      label.text = "Executive"
     } else if section == 1 {
-      label.text = "Long Names"
+      label.text = "Senior Management"
     } else {
-      label.text = "Really Long Names"
+      label.text = "Staff"
     }
     label.font = UIFont.boldSystemFont(ofSize: 16)
     return label
@@ -136,7 +136,7 @@ class EmployeeController: UITableViewController {
     present(navController, animated: true, completion: nil)
   }
 }
-
+// fired off when the CreateEmployeeController is dismissed
 extension EmployeeController: CreateEmployeeControllerDelegate {
   func didAddEmployee(employee: Employee) {
     fetchEmployees()
