@@ -36,15 +36,15 @@ class EmployeeController: UITableViewController {
 
     // filter for executives
     let executive = companyEmployees.filter { (employee) -> Bool in
-      return employee.type == "Executive"
+      return employee.type == EmployeeType.Executive.rawValue
     }
 
-    let seniorManagement = companyEmployees.filter {$0.type == "Senior Mgmt"}
+    let seniorManagement = companyEmployees.filter { $0.type == EmployeeType.SeniorManagement.rawValue }
     
     allEmployeeNames = [
       executive,
       seniorManagement,
-      companyEmployees.filter { $0.type == "Staff" }
+      companyEmployees.filter { $0.type == EmployeeType.Staff.rawValue }
     ]
     
   }
@@ -53,11 +53,11 @@ class EmployeeController: UITableViewController {
     let label = IndentedLabel()
     label.backgroundColor = ThemeColor.khaki
     if section == 0 {
-      label.text = "Executive"
+      label.text = EmployeeType.Executive.rawValue
     } else if section == 1 {
-      label.text = "Senior Management"
+      label.text = EmployeeType.SeniorManagement.rawValue
     } else {
-      label.text = "Staff"
+      label.text = EmployeeType.Staff.rawValue
     }
     label.font = UIFont.boldSystemFont(ofSize: 16)
     return label
