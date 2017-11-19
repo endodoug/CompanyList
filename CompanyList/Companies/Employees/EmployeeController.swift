@@ -34,7 +34,8 @@ class EmployeeController: UITableViewController {
   var employeeTypes = [
     EmployeeType.Executive.rawValue,
     EmployeeType.SeniorManagement.rawValue,
-    EmployeeType.Staff.rawValue
+    EmployeeType.Staff.rawValue,
+    EmployeeType.Intern.rawValue
   ]
   
   private func fetchEmployees() {
@@ -68,13 +69,7 @@ class EmployeeController: UITableViewController {
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let label = IndentedLabel()
     label.backgroundColor = ThemeColor.khaki
-    if section == 0 {
-      label.text = EmployeeType.Executive.rawValue
-    } else if section == 1 {
-      label.text = EmployeeType.SeniorManagement.rawValue
-    } else {
-      label.text = EmployeeType.Staff.rawValue
-    }
+    label.text = employeeTypes[section]
     label.font = UIFont.boldSystemFont(ofSize: 16)
     return label
   }

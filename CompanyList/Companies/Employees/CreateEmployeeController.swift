@@ -102,7 +102,8 @@ class CreateEmployeeController: UIViewController {
     let types = [
       EmployeeType.Executive.rawValue,
       EmployeeType.SeniorManagement.rawValue,
-      EmployeeType.Staff.rawValue
+      EmployeeType.Staff.rawValue,
+      EmployeeType.Intern.rawValue
     ]
     let segmentedControl = UISegmentedControl(items: types)
     segmentedControl.tintColor = ThemeColor.red
