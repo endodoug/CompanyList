@@ -19,8 +19,20 @@ class CompaniesController: UITableViewController {
     
     // GCD
     DispatchQueue.global(qos: .background).async {
-      (0...1000000).forEach { (value) in
+      
+      let context = CoreDataManager.shared.persistentContainer.viewContext
+      
+      (0...10).forEach { (value) in
         print(value)
+        let company = Company(context: context)
+        company.name = String(value)
+        
+        do {
+          try context.save()
+        } catch let saveErr {
+          print("Failed to save: ", saveErr)
+        }
+        
       }
     }
   }
