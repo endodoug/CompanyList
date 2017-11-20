@@ -14,12 +14,21 @@ class CompaniesController: UITableViewController {
   let cellId = "cellId"
   var companies = [Company]()
   
+  @objc private func doWork() {
+    print("Trying to do work 🏋🏼‍♀️")
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.companies = CoreDataManager.shared.fetchCompanies()
     
     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped))
+    
+    navigationItem.leftBarButtonItems = [
+      UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped)),
+      UIBarButtonItem(title: "Do Work", style: .plain, target: self, action: #selector(doWork))
+    ]
     
     tableView.backgroundColor = ThemeColor.asphalt
     tableView.separatorColor = .white
