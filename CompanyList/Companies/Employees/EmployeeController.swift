@@ -41,6 +41,8 @@ class EmployeeController: UITableViewController {
   private func fetchEmployees() {
     guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
     
+    allEmployeeNames = []
+    
     // use new array and loop to perform the filter
     employeeTypes.forEach { (employeeType) in
       
