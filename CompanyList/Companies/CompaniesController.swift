@@ -46,6 +46,18 @@ class CompaniesController: UITableViewController {
     }
   }
   
+  // Tricky Core Data updates
+  @objc private func doUpdates() {
+    print("Trying to update Companies in a Background Thread 🏃")
+    CoreDataManager.shared.persistentContainer.performBackgroundTask { (backgroundContext) in
+      
+      let companies = backgroundContext.fetch(<#T##request: NSFetchRequest<NSFetchRequestResult>##NSFetchRequest<NSFetchRequestResult>#>)
+      
+    }
+
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -53,7 +65,7 @@ class CompaniesController: UITableViewController {
     
     navigationItem.leftBarButtonItems = [
       UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped)),
-      UIBarButtonItem(title: "Do Work", style: .plain, target: self, action: #selector(doWork))
+      UIBarButtonItem(title: "Do Updates", style: .plain, target: self, action: #selector(doUpdates))
     ]
     
     tableView.backgroundColor = ThemeColor.asphalt
