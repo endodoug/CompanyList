@@ -22,7 +22,7 @@ class CompaniesController: UITableViewController {
       
       let context = CoreDataManager.shared.persistentContainer.viewContext
       
-      (0...10000).forEach { (value) in
+      (0...20000).forEach { (value) in
         print(value)
         let company = Company(context: context)
         company.name = String(value)
