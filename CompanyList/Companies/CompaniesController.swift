@@ -51,7 +51,15 @@ class CompaniesController: UITableViewController {
     print("Trying to update Companies in a Background Thread 🏃")
     CoreDataManager.shared.persistentContainer.performBackgroundTask { (backgroundContext) in
       
-      let companies = backgroundContext.fetch(<#T##request: NSFetchRequest<NSFetchRequestResult>##NSFetchRequest<NSFetchRequestResult>#>)
+      let request: NSFetchRequest<Company> = Company.fetchRequest()
+      do {
+        let companies = try backgroundContext.fetch(request)
+        companies.forEach({ (company) in
+          print(company.name ?? "")
+        })
+      } catch let err {
+        print("Failed to fetch on background ☢️: ", err)
+      }
       
     }
 
