@@ -132,9 +132,12 @@ class EmployeeController: UITableViewController {
 // fired off when the CreateEmployeeController is dismissed
 extension EmployeeController: CreateEmployeeControllerDelegate {
   func didAddEmployee(employee: Employee) {
-    fetchEmployees()
-//    employees.append(employee)
-    tableView.reloadData()
+//    fetchEmployees()
+//    tableView.reloadData()
+    // what is insertion index path
+    let insertionIndexPath = IndexPath(row: <#T##Int#>, section: <#T##Int#>)
+    
+    tableView.insertRows(at: <#T##[IndexPath]#>, with: .right)
   }
   
   
