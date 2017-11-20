@@ -21,7 +21,6 @@ class IndentedLabel: UILabel {
 class EmployeeController: UITableViewController {
   
   var company: Company?
-//  var employees = [Employee]()
   let cellId = "cellId"
   
   override func viewWillAppear(_ animated: Bool) {
@@ -52,19 +51,6 @@ class EmployeeController: UITableViewController {
       )
       
     }
-
-    // filter for executives
-//    let executive = companyEmployees.filter { (employee) -> Bool in
-//      return employee.type == EmployeeType.Executive.rawValue
-//    }
-//
-//    let seniorManagement = companyEmployees.filter { $0.type == EmployeeType.SeniorManagement.rawValue }
-//
-//    allEmployeeNames = [
-//      executive,
-//      seniorManagement,
-//      companyEmployees.filter { $0.type == EmployeeType.Staff.rawValue }
-//    ]
     
   }
   
@@ -92,8 +78,7 @@ class EmployeeController: UITableViewController {
     let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
     
     let employee = allEmployeeNames[indexPath.section][indexPath.row]
-//    let employee = indexPath.section == 0 ? shortNameEmployees[indexPath.row] : longNameEmployees[indexPath.row]
-//    let employee = employees[indexPath.row]
+
     cell.textLabel?.text = employee.name
     if let birthday = employee.employeeInfo?.birthday {
       
@@ -102,9 +87,7 @@ class EmployeeController: UITableViewController {
       
       cell.textLabel?.text = "\(employee.name ?? "")     \(dateFormatter.string(from: birthday))"
     }
-//    if let taxId = employee.employeeInfo?.taxid {
-//      cell.textLabel?.text = "\(employee.name ?? "")       \(taxId)"
-//    }
+
     cell.backgroundColor = ThemeColor.gray
     cell.textLabel?.textColor = .white
     cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
@@ -132,8 +115,7 @@ class EmployeeController: UITableViewController {
 // fired off when the CreateEmployeeController is dismissed
 extension EmployeeController: CreateEmployeeControllerDelegate {
   func didAddEmployee(employee: Employee) {
-//    fetchEmployees()
-//    tableView.reloadData()
+
     // what is insertion index path
     // FIXME: Bang!
     guard let section = employeeTypes.index(of: employee.type!) else { return }
