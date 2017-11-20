@@ -135,7 +135,9 @@ extension EmployeeController: CreateEmployeeControllerDelegate {
 //    fetchEmployees()
 //    tableView.reloadData()
     // what is insertion index path
-    let insertionIndexPath = IndexPath(row: <#T##Int#>, section: <#T##Int#>)
+    guard let section = employeeTypes.index(of: employee.type!) else { return }
+    
+    let insertionIndexPath = IndexPath(row: <#T##Int#>, section: section)
     
     tableView.insertRows(at: <#T##[IndexPath]#>, with: .right)
   }
