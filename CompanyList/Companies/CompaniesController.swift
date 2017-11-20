@@ -56,11 +56,19 @@ class CompaniesController: UITableViewController {
         let companies = try backgroundContext.fetch(request)
         companies.forEach({ (company) in
           print(company.name ?? "")
-          company.name = "A: \(company.name ?? "")"
+          company.name = "B: \(company.name ?? "")"
         })
         
         do {
           try backgroundContext.save()
+          
+          // update the UI after save
+          DispatchQueue.main.async {
+            self.companies = CoreDataManager.shared.fetchCompanies()
+            self.tableView.reloadData()
+          }
+          
+          
         } catch let err {
           print("failed to save on background thread: ", err)
         }
