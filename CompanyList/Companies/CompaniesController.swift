@@ -16,14 +16,19 @@ class CompaniesController: UITableViewController {
   
   @objc private func doWork() {
     print("Trying to do work 🏋🏼‍♀️")
+    
+    // GCD
+    DispatchQueue.global(qos: .background).async {
+      (0...1000000).forEach { (value) in
+        print(value)
+      }
+    }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     self.companies = CoreDataManager.shared.fetchCompanies()
-    
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped))
     
     navigationItem.leftBarButtonItems = [
       UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped)),
