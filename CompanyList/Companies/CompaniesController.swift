@@ -17,29 +17,32 @@ class CompaniesController: UITableViewController {
   @objc private func doWork() {
     print("Trying to do work 🏋🏼‍♀️")
     
+    CoreDataManager.shared.persistentContainer.performBackgroundTask({ (backgroudContext) in
+      
+      (0...5).forEach { (value) in
+        print(value)
+        let company = Company(context: backgroudContext)
+        company.name = String(value)
+        
+      }
+      
+      do {
+        try backgroudContext.save()
+        
+        DispatchQueue.main.async {
+          self.companies = CoreDataManager.shared.fetchCompanies()
+          self.tableView.reloadData()
+        }
+        
+      } catch let saveErr {
+        print("Failed to save: ", saveErr)
+      }
+      
+    })
+    
     // GCD
     DispatchQueue.global(qos: .background).async {
-      
-      CoreDataManager.shared.persistentContainer.performBackgroundTask({ (backgroudContext) in
-        
-        (0...20000).forEach { (value) in
-          print(value)
-          let company = Company(context: backgroudContext)
-          company.name = String(value)
-          
-        }
-        
-        do {
-          try backgroudContext.save()
-        } catch let saveErr {
-          print("Failed to save: ", saveErr)
-        }
-        
-      })
-      
 //      let context = CoreDataManager.shared.persistentContainer.viewContext
-      
-      
     }
   }
   
