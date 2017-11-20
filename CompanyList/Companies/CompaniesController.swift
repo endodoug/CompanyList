@@ -56,7 +56,15 @@ class CompaniesController: UITableViewController {
         let companies = try backgroundContext.fetch(request)
         companies.forEach({ (company) in
           print(company.name ?? "")
+          company.name = "A: \(company.name ?? "")"
         })
+        
+        do {
+          try backgroundContext.save()
+        } catch let err {
+          print("failed to save on background thread: ", err)
+        }
+        
       } catch let err {
         print("Failed to fetch on background ☢️: ", err)
       }
