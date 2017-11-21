@@ -114,6 +114,12 @@ class CompaniesController: UITableViewController {
           try privateContext.save()
           // after save succeeds...
           DispatchQueue.main.async {
+            // save the main context to the persisten store
+            do {
+              try CoreDataManager.shared.persistentContainer.viewContext.save()
+            } catch let saveErr {
+              print("Failed to save the main context: ", saveErr)
+            }
             self.tableView.reloadData()
           }
           
