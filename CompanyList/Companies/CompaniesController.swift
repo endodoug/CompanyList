@@ -91,6 +91,14 @@ class CompaniesController: UITableViewController {
   
   @objc private func doNestedUpdates() {
     print("Trying to do Nested Updates 🦅")
+    DispatchQueue.global(qos: .background).async {
+      // try to perform the updates
+      
+      // first construct a custom MOC
+      let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+      
+      privateContext.parent = CoreDataManager.shared.persistentContainer.viewContext
+    }
   }
   
   
