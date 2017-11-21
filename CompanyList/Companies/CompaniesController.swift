@@ -107,7 +107,15 @@ class CompaniesController: UITableViewController {
         let companies = try privateContext.fetch(request)
         companies.forEach({ (company) in
           print(company.name ?? "")
+          company.name = "D: \(company.name ?? "")"
         })
+        
+        do {
+          try privateContext.save()
+        } catch let saveErr {
+          print("Failed to save private Context: ", saveErr)
+        }
+        
       } catch let err {
         print("Failed to complete private fetch in background thread: ", err)
       }
