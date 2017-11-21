@@ -56,7 +56,7 @@ class CompaniesController: UITableViewController {
         let companies = try backgroundContext.fetch(request)
         companies.forEach({ (company) in
           print(company.name ?? "")
-          company.name = "B: \(company.name ?? "")"
+          company.name = "C: \(company.name ?? "")"
         })
         
         do {
@@ -64,6 +64,7 @@ class CompaniesController: UITableViewController {
           
           // update the UI after save
           DispatchQueue.main.async {
+            CoreDataManager.shared.persistentContainer.viewContext.reset()
             self.companies = CoreDataManager.shared.fetchCompanies()
             self.tableView.reloadData()
           }
