@@ -64,8 +64,15 @@ class CompaniesController: UITableViewController {
           
           // update the UI after save
           DispatchQueue.main.async {
+            // reset will forget all the objects I've previously fetched.
             CoreDataManager.shared.persistentContainer.viewContext.reset()
+            
+            // if just making a couple updates, I don't want to re-fetch everything.
+            
             self.companies = CoreDataManager.shared.fetchCompanies()
+            
+            // is there a way to simply merge the cnanges made to the main viewContext
+            
             self.tableView.reloadData()
           }
           
@@ -82,6 +89,10 @@ class CompaniesController: UITableViewController {
 
   }
   
+  @objc private func doNestedUpdates() {
+    print("Trying to do Nested Updates 🦅")
+  }
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -90,7 +101,7 @@ class CompaniesController: UITableViewController {
     
     navigationItem.leftBarButtonItems = [
       UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleResetButtonTapped)),
-      UIBarButtonItem(title: "Do Updates", style: .plain, target: self, action: #selector(doUpdates))
+      UIBarButtonItem(title: "Nested Updates", style: .plain, target: self, action: #selector(doNestedUpdates))
     ]
     
     tableView.backgroundColor = ThemeColor.asphalt
