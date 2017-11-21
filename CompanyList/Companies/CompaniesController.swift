@@ -98,6 +98,19 @@ class CompaniesController: UITableViewController {
       let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
       
       privateContext.parent = CoreDataManager.shared.persistentContainer.viewContext
+      
+      // execute all updates on the private Context
+      let request: NSFetchRequest<Company> = Company.fetchRequest()
+      request.fetchLimit = 1
+      
+      do {
+        let companies = try privateContext.fetch(request)
+        companies.forEach({ (company) in
+          print(company.name ?? "")
+        })
+      } catch let err {
+        print("Failed to complete private fetch in background thread: ", err)
+      }
     }
   }
   
