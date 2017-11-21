@@ -112,6 +112,11 @@ class CompaniesController: UITableViewController {
         
         do {
           try privateContext.save()
+          // after save succeeds...
+          DispatchQueue.main.async {
+            self.tableView.reloadData()
+          }
+          
         } catch let saveErr {
           print("Failed to save private Context: ", saveErr)
         }
