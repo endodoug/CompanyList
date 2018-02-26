@@ -37,11 +37,15 @@ class CompaniesAutoUpdateController: UITableViewController {
     navigationItem.title = "company auto updates"
     
     tableView.backgroundColor = UIColor.darkGray
-    tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
     
     fetchedResultsController.fetchedObjects?.forEach({ (company) in
       print(company.name ?? "")
     })
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 50
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,8 +55,12 @@ class CompaniesAutoUpdateController: UITableViewController {
   let cellId = "cellId"
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! CompanyCell
     
+    let company = fetchedResultsController.object(at: indexPath)
+    
+//    cell.textLabel?.text = company.name
+    cell.company = company
     
     return cell
   }
