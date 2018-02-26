@@ -31,10 +31,27 @@ class CompaniesAutoUpdateController: UITableViewController {
     return frc
   }()
   
+  @objc private func handleAdd() {
+    
+    print("Add a company called BMW")
+    let context = CoreDataManager.shared.persistentContainer.viewContext
+    let company = Company(context: context)
+    company.name = "BMW"
+    
+    do {
+      try context.save()
+    } catch let err {
+      print(err)
+    }
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationItem.title = "company auto updates"
+    
+    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAdd))
     
     tableView.backgroundColor = UIColor.darkGray
     tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
