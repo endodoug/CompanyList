@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class CompaniesAutoUpdateController: UITableViewController {
+class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsControllerDelegate {
   
-  let fetchedResultsController: NSFetchedResultsController<Company> = {
+  lazy var fetchedResultsController: NSFetchedResultsController<Company> = {
     
     let context = CoreDataManager.shared.persistentContainer.viewContext
     
@@ -21,6 +21,8 @@ class CompaniesAutoUpdateController: UITableViewController {
     ]
     
     let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    
+    frc.delegate = self
     
     do {
       try frc.performFetch()
