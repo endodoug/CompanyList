@@ -25,6 +25,7 @@
 		B798E25C1F9F9221002F96B1 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25B1F9F9221002F96B1 /* Company.swift */; };
 		B798E25E1F9F9D52002F96B1 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */; };
 		B7D3FFE31FC13E4500AA0819 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D3FFE21FC13E4500AA0819 /* EmployeeType.swift */; };
+		B7F26B2F204483E6006F7CEC /* CompaniesAutoUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F26B2E204483E6006F7CEC /* CompaniesAutoUpdateController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B798E25B1F9F9221002F96B1 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
 		B7D3FFE21FC13E4500AA0819 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
+		B7F26B2E204483E6006F7CEC /* CompaniesAutoUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesAutoUpdateController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				B7D3FFDF1FBA538600AA0819 /* Employees */,
 				B798E25B1F9F9221002F96B1 /* Company.swift */,
+				B7F26B2E204483E6006F7CEC /* CompaniesAutoUpdateController.swift */,
 				B798E2241F9C37FB002F96B1 /* CompaniesController.swift */,
 				B73863CE1FAB6BFB00846256 /* CompanyCell.swift */,
 				B77CEDC31FAE7399005C9EF3 /* CompaniesController+CreateCompany.swift */,
@@ -204,6 +207,7 @@
 				B77CEDC61FAE74BD005C9EF3 /* CompaniesController+UITableView.swift in Sources */,
 				B72411A21FA7A08E00BD7FA5 /* UIView+Utilities.swift in Sources */,
 				B7D3FFE31FC13E4500AA0819 /* EmployeeType.swift in Sources */,
+				B7F26B2F204483E6006F7CEC /* CompaniesAutoUpdateController.swift in Sources */,
 				B77C6AAC1FB2C00C00E95E69 /* UIViewController+Helpers.swift in Sources */,
 				B77C6AAA1FB2BCA200E95E69 /* EmployeeController.swift in Sources */,
 				B73DBEBF1FA13C490099AA2B /* CompanyModels.xcdatamodeld in Sources */,
@@ -349,6 +353,7 @@
 		B798E2321F9C37FB002F96B1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H83DTQE69D;
@@ -364,6 +369,7 @@
 		B798E2331F9C37FB002F96B1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H83DTQE69D;
