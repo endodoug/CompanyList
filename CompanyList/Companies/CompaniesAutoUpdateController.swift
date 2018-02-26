@@ -38,5 +38,8 @@ class CompaniesAutoUpdateController: UITableViewController {
     
     tableView.backgroundColor = UIColor.darkGray
     
+    fetchedResultsController.fetchedObjects?.forEach({ (company) in
+      print(company.name ?? "")
+    })
   }
 }
