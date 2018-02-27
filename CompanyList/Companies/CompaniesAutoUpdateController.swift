@@ -82,12 +82,33 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
     
   }
   
+  @objc private func handleDelete() {
+  
+    let request: NSFetchRequest<Company> = Company.fetchRequest()
+    request.predicate = NSPredicate(format: "name CONTAINS %@", "B")
+    let context = CoreDataManager.shared.persistentContainer.viewContext
+    
+    let companiesWithB = try? context.fetch(request)
+    companiesWithB?.forEach({ (company) in
+      context.delete(company)
+    })
+    do {
+      try context.save()
+    } catch let err {
+      print(err)
+    }
+    
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
     navigationItem.title = "company auto updates"
     
-    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAdd))
+    navigationItem.leftBarButtonItems = [
+      UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(handleAdd)),
+      UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(handleDelete))
+    ]
     
     tableView.backgroundColor = UIColor.darkGray
     tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
