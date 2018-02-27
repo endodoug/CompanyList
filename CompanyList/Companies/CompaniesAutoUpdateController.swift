@@ -20,7 +20,7 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
     NSSortDescriptor(key: "name", ascending: true)
     ]
     
-    let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+    let frc = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "name", cacheName: nil)
     
     frc.delegate = self
     
@@ -99,6 +99,10 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 50
+  }
+  
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return fetchedResultsController.sections?.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
