@@ -124,9 +124,13 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
   
   override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     let label = IndentedLabel()
-    label.text = "Header"
+    label.text = fetchedResultsController.sectionIndexTitles[section]
     label.backgroundColor = ThemeColor.khaki
     return label
+  }
+  
+  func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String? {
+    return sectionName
   }
   
   override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
