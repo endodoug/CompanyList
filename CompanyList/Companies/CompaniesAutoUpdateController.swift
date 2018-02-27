@@ -101,6 +101,17 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
     return 50
   }
   
+  override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let label = IndentedLabel()
+    label.text = "Header"
+    label.backgroundColor = ThemeColor.khaki
+    return label
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return 50
+  }
+  
   override func numberOfSections(in tableView: UITableView) -> Int {
     return fetchedResultsController.sections?.count ?? 0
   }
