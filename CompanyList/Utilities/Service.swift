@@ -23,14 +23,31 @@ struct Service {
       print("Finish Downloading")
       
       if let err = err {
-        print("Failed to download JSON:", err)
+        print("Failed to load JSON: ", err)
+        return
       }
-      // could check response here too
-      let string = String(data: data!, encoding: .utf8)
-      print(string)
+      // could leave a response message here
       
+      guard let data = data else { return }
+      
+      let jsonDecoder = JSONDecoder()
+      
+      do {
+        let jsonCompanies = try jsonDecoder.decode([JSONCompany].self, from: data)
+        jsonCompanies.forEach({ (jsonCompany) in
+          print(jsonCompany.name)
+        })
+        
+      } catch let jsonDecodeErr {
+        print("Failed to decode JSON:", jsonDecodeErr)
+      }
+
       }.resume()
   }
   
-  
+}
+
+struct JSONCompany: Decodable {
+  let name: String
+  let founded: String
 }
