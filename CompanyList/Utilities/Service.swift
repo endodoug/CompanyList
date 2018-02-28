@@ -34,6 +34,11 @@ struct Service {
         let jsonCompanies = try jsonDecoder.decode([JSONCompany].self, from: data)
         jsonCompanies.forEach({ (jsonCompany) in
           print(jsonCompany.name)
+          
+          jsonCompany.employees?.forEach({ (jsonEmployee) in
+            print("   \(jsonEmployee.name)")
+          })
+          
         })
         
       } catch let jsonDecodeErr {
