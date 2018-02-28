@@ -13,9 +13,7 @@ struct Service {
   static let shared = Service()
   
   let urlString = "https://api.letsbuildthatapp.com/intermediate_training/companies"
-  
-  
-  
+ 
   func downloadCompaniesFromServer() {
     guard let url = URL(string: urlString) else { return }
     
@@ -44,10 +42,34 @@ struct Service {
 
       }.resume()
   }
-  
 }
 
 struct JSONCompany: Decodable {
   let name: String
   let founded: String
+  let photoUrl: String
+  var employees: [JSONEmployee]?
 }
+
+struct JSONEmployee: Decodable {
+  let name: String
+  let birthday: String
+  let type: String
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
