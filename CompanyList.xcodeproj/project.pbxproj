@@ -24,6 +24,7 @@
 		B798E2371F9C50EF002F96B1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E2361F9C50EF002F96B1 /* Extensions.swift */; };
 		B798E25C1F9F9221002F96B1 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25B1F9F9221002F96B1 /* Company.swift */; };
 		B798E25E1F9F9D52002F96B1 /* CreateCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */; };
+		B7C885D52046594000D534CA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C885D42046594000D534CA /* Service.swift */; };
 		B7D3FFE31FC13E4500AA0819 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D3FFE21FC13E4500AA0819 /* EmployeeType.swift */; };
 		B7F26B2F204483E6006F7CEC /* CompaniesAutoUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F26B2E204483E6006F7CEC /* CompaniesAutoUpdateController.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		B798E2361F9C50EF002F96B1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B798E25B1F9F9221002F96B1 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
 		B798E25D1F9F9D52002F96B1 /* CreateCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCompanyController.swift; sourceTree = "<group>"; };
+		B7C885D42046594000D534CA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		B7D3FFE21FC13E4500AA0819 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
 		B7F26B2E204483E6006F7CEC /* CompaniesAutoUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesAutoUpdateController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +85,7 @@
 			children = (
 				B73DBEC01FA241670099AA2B /* CoreDataManager.swift */,
 				B798E2361F9C50EF002F96B1 /* Extensions.swift */,
+				B7C885D42046594000D534CA /* Service.swift */,
 				B72411A11FA7A08E00BD7FA5 /* UIView+Utilities.swift */,
 				B77C6AAB1FB2C00C00E95E69 /* UIViewController+Helpers.swift */,
 			);
@@ -213,6 +216,7 @@
 				B73DBEBF1FA13C490099AA2B /* CompanyModels.xcdatamodeld in Sources */,
 				B798E2231F9C37FB002F96B1 /* AppDelegate.swift in Sources */,
 				B73863CF1FAB6BFB00846256 /* CompanyCell.swift in Sources */,
+				B7C885D52046594000D534CA /* Service.swift in Sources */,
 				B798E25E1F9F9D52002F96B1 /* CreateCompanyController.swift in Sources */,
 				B798E2371F9C50EF002F96B1 /* Extensions.swift in Sources */,
 				B73DBEC11FA241670099AA2B /* CoreDataManager.swift in Sources */,

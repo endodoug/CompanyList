@@ -110,12 +110,11 @@ class CompaniesAutoUpdateController: UITableViewController, NSFetchedResultsCont
       UIBarButtonItem(title: "Delete", style: .plain, target: self, action: #selector(handleDelete))
     ]
     
+    Service.shared.downloadCompaniesFromServer()
+    
     tableView.backgroundColor = UIColor.darkGray
     tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
     
-    fetchedResultsController.fetchedObjects?.forEach({ (company) in
-      print(company.name ?? "")
-    })
   }
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
