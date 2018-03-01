@@ -42,7 +42,12 @@ struct Service {
           
           let company = Company(context: privateContext)
           company.name = jsonCompany.name
-          company.founded = jsonCompany.founded
+          
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "MM/dd/yyyy"
+          let foundedDate = dateFormatter.date(from: jsonCompany.founded)
+          
+          company.founded = foundedDate
           
           jsonCompany.employees?.forEach({ (jsonEmployee) in
             print("   \(jsonEmployee.name)")
