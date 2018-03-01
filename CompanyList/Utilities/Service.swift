@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct Service {
   
@@ -18,7 +19,6 @@ struct Service {
     guard let url = URL(string: urlString) else { return }
     
     URLSession.shared.dataTask(with: url) { (data, resp, err) in
-      print("Finish Downloading")
       
       if let err = err {
         print("Failed to load JSON: ", err)
@@ -32,6 +32,11 @@ struct Service {
       
       do {
         let jsonCompanies = try jsonDecoder.decode([JSONCompany].self, from: data)
+        
+        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        
+        privateContext.parent = CoreDataManager.shared.persistentContainer.viewContext
+        
         jsonCompanies.forEach({ (jsonCompany) in
           print(jsonCompany.name)
           
