@@ -40,6 +40,10 @@ struct Service {
         jsonCompanies.forEach({ (jsonCompany) in
           print(jsonCompany.name)
           
+          let company = Company(context: privateContext)
+          company.name = jsonCompany.name
+          company.founded = jsonCompany.founded
+          
           jsonCompany.employees?.forEach({ (jsonEmployee) in
             print("   \(jsonEmployee.name)")
           })
