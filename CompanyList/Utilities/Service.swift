@@ -49,6 +49,12 @@ struct Service {
           
           company.founded = foundedDate
           
+          do {
+            try privateContext.save()
+          } catch let saveErr {
+            print("Failed to save companies: ", saveErr)
+          }
+          
           jsonCompany.employees?.forEach({ (jsonEmployee) in
             print("   \(jsonEmployee.name)")
           })
