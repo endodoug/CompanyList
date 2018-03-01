@@ -51,6 +51,7 @@ struct Service {
           
           do {
             try privateContext.save()
+            try privateContext.parent?.save()
           } catch let saveErr {
             print("Failed to save companies: ", saveErr)
           }
